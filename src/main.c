@@ -6,6 +6,13 @@
 /*   By: lraffin <lraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/25 04:13:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/25 17:31:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <../include/push_swap.h>
+
+int	main(void)
+{
+	printf("Salut\n");
+}
