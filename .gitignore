@@ -29,6 +29,7 @@
 *.dylib
 
 # Executables
+push_swap
 *.exe
 *.out
 *.app
