@@ -6,16 +6,16 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/26 17:47:20 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/26 18:04:04 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
-CC      = gcc -O2
+CC      = gcc
 FLAGS  = -Wall -Wextra -Werror
 
 ### EXECUTABLE ###
-NAME   = fdf
+NAME   = push_swap
 
 ### INCLUDES ###
 LIBFT  = libft
@@ -51,10 +51,9 @@ all: lib tmp $(NAME)
 lib:
 	@echo "$(GREEN)Creating lib files$(CYAN)"
 	@make -C $(LIBFT)
-	@make -C $(MLX)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX) -o $@ $^ -lft -lmlx -lXext -lX11 -lm
+	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^
 	@echo "$(GREEN)Project successfully compiled"
 
 tmp:
