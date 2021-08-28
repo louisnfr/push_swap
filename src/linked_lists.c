@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 22:28:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/28 22:59:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	addback(t_stack **stack, t_stack *cell)
 	}
 }
 
-void	print_stack(t_stack *stack)
+void	print_stack(t_stack *stack, char *name)
 {
 	while (stack)
 	{
@@ -54,5 +54,7 @@ void	print_stack(t_stack *stack)
 		ft_putchar('\n');
 		stack = stack->next;
 	}
-	ft_putstr("EOS\n");
+	ft_putstr("_\n");
+	ft_putstr(name);
+	ft_putstr("\n");
 }
