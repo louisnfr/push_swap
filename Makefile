@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/26 18:04:04 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/28 19:13:37 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,17 @@ FLAGS  = -Wall -Wextra -Werror
 NAME   = push_swap
 
 ### INCLUDES ###
-LIBFT  = libft
-OBJ_PATH  = obj
 HEADER = include
+LIBFT  = libft
 SRC_PATH  = src
+OBJ_PATH  = obj
 
 ### SOURCE FILES ###
 SOURCES = main.c
 
 ### OBJECTS ###
-
-SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
-OBJS = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
+SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
+OBJ = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 
 ### COLORS ###
 NOC         = \033[0m
@@ -76,10 +75,14 @@ fclean:
 
 re: fclean all
 
+norm:
+	-@norminette $(SRC)
+	-@norminette $(HEADER)
+
 push:
 	git add .
 	git status
 	git commit -m push_swap
 	git push
 
-.PHONY:	re, clean, fclean, temporary, push
+.PHONY:	re, clean, fclean, tmp, norm, push
