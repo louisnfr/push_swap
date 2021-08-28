@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/28 19:13:37 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/28 22:40:41 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC_PATH  = src
 OBJ_PATH  = obj
 
 ### SOURCE FILES ###
-SOURCES = main.c
+SOURCES = main.c \
+		errors.c \
+		linked_lists.c
 
 ### OBJECTS ###
 SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
@@ -51,8 +53,8 @@ lib:
 	@echo "$(GREEN)Creating lib files$(CYAN)"
 	@make -C $(LIBFT)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lft
 	@echo "$(GREEN)Project successfully compiled"
 
 tmp:
