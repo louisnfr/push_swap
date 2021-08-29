@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 23:30:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:08:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-typedef struct s_sort
+typedef struct s_board
 {
 	t_stack	*a;
-	t_stack	*b;
-}	t_sort;
+	t_stack *b;
+}	t_board;
 
 void	ft_terminate(char *error_message);
 t_stack	*new_cell(int value);
 void	print_stack(t_stack *stack, char *name);
+void	print_board(t_board *stack);
 void	addback(t_stack **stack, t_stack *cell);
 
 #endif

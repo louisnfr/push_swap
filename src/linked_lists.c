@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 22:59:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:31:15 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,22 @@ void	addback(t_stack **stack, t_stack *cell)
 
 void	print_stack(t_stack *stack, char *name)
 {
+	ft_putstr(name);
+	ft_putstr(": ");
 	while (stack)
 	{
 		ft_putnbr(stack->value);
-		ft_putchar('\n');
+		ft_putstr(" > ");
 		stack = stack->next;
 	}
-	ft_putstr("_\n");
-	ft_putstr(name);
-	ft_putstr("\n");
+	ft_putstr("NULL\n");
+}
+
+void	print_board(t_board *stack)
+{
+	ft_putstr("---\n");
+	print_stack(stack->a, "a");
+	ft_putstr("---\n");
+	print_stack(stack->b, "b");
+	ft_putstr("---\n");
 }

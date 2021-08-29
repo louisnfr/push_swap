@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/28 22:40:41 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/29 17:18:01 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,27 +50,27 @@ WHITE       = \033[1;37m
 all: lib tmp $(NAME)
 
 lib:
-	@echo "$(GREEN)Creating lib files$(CYAN)"
+	@echo "$(YELLOW)Creating lib files$(NOC)"
 	@make -C $(LIBFT)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lft
-	@echo "$(GREEN)Project successfully compiled"
+	@echo "$(GREEN)Project successfully compiled$(NOC)"
 
 tmp:
 	@mkdir -p obj
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(FLAGS) -c -o $@ $<
-	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]$(NOC)"
+	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(GREEN)[Done]$(NOC)"
 
 clean:
-	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@echo "$(RED)Supressing libraries files$(NOC)"
 	@make clean -C $(LIBFT)
 	@rm -rf $(OBJ_PATH)
 
 fclean:
-	@echo "$(GREEN)Supressing libraries files$(CYAN)"
+	@echo "$(RED)Supressing libraries files$(NOC)"
 	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
 	@make fclean -C $(LIBFT)
