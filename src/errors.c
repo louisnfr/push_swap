@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/28 21:32:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:33:18 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,10 @@ void	ft_terminate(char *error_message)
 {
 	ft_putstr(error_message);
 	exit(EXIT_FAILURE);
+}
+
+void	check_input(int ac, char **av)
+{
+	if (ac < 2)
+		ft_terminate(ERROR);
 }

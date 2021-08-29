@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/29 17:31:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:33:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,10 @@ void	init_board(t_board **stack)
 
 int	main(int ac, char **av)
 {
-	(void)av;
+	t_board	*stack;
 
-	if (ac < 2)
-		ft_terminate(ERROR);
-
-	t_board *stack;
+	check_input(ac, av);
 	init_board(&stack);
-
-
-
 	print_board(stack);
 	return (0);
 }
