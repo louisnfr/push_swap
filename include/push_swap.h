@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/29 17:40:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/29 17:55:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_board
 /* errors */
 
 void	ft_terminate(char *error_message);
-void	check_input(int ac, char **av);
+void	check_input(int ac, char **av, t_board *stack);
 
 /* lists */
 
