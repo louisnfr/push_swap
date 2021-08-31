@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/29 17:18:01 by lraffin          ###   ########.fr        #
+#    Updated: 2021/08/31 17:18:37 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ OBJ_PATH  = obj
 ### SOURCE FILES ###
 SOURCES = main.c \
 		errors.c \
-		linked_lists.c
+		linked_lists.c \
+		sort.c
 
 ### OBJECTS ###
 SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/31 16:49:33 by lraffin          ###   ########.fr       */
+/*   Created: 2021/08/31 17:17:28 by lraffin           #+#    #+#             */
+/*   Updated: 2021/08/31 17:27:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+# include "../include/push_swap.h"
 
-void	init_board(t_board **stack)
+void	swap_a(t_board *stack)
 {
-	*stack = malloc(sizeof(t_board));
-	if (!(*stack))
-		ft_terminate(MALLOC, *stack);
-	(*stack)->a = NULL;
-	(*stack)->b = NULL;
-}
+	t_stack	*tmp;
 
-int	main(int ac, char **av)
-{
-	t_board	*stack;
-
-	init_board(&stack);
-	check_input(ac, av, stack);
-	print_board(stack);
-	return (0);
+	tmp = stack->b;
+	st
 }

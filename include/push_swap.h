@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/29 17:55:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/08/31 17:22:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 typedef struct s_stack
 {
 	int				value;
-	struct s_stack	*previous;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -37,7 +36,7 @@ typedef struct s_board
 
 /* errors */
 
-void	ft_terminate(char *error_message);
+void	ft_terminate(char *error_message, t_board *stack);
 void	check_input(int ac, char **av, t_board *stack);
 
 /* lists */
@@ -46,5 +45,9 @@ t_stack	*new_cell(int value);
 void	print_stack(t_stack *stack, char *name);
 void	print_board(t_board *stack);
 void	addback(t_stack **stack, t_stack *cell);
+
+/* lists */
+
+void	swap_a(t_board *stack);
 
 #endif
