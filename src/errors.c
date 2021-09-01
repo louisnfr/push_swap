@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/01 14:04:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/01 15:03:27 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	parse_input(t_board *stack, char **av)
 		while (av[++j])
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				count++;
-		if (count != 1)
+		if (count != 1 || ft_atoi_long(av[i]) > 2147483647
+			|| ft_atoi_long(av[i]) < -2147483648)
 			ft_terminate(ERROR, stack);
 		addback(&stack->a, new_cell(ft_atoi(av[i])));
 	}
