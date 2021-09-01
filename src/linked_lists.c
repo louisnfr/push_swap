@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/08/29 17:37:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/01 18:08:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ t_stack	*new_cell(int value)
 	cell->value = value;
 	cell->next = NULL;
 	return (cell);
+}
+
+int		getnode(t_stack *stack, int index)
+{
+	int	i;
+
+	i = -1;
+	while (++i < index)
+	{
+		stack = stack->next;
+	}
+	return stack;
 }
 
 t_stack	*getlast(t_stack *stack)
@@ -44,6 +56,12 @@ void	addback(t_stack **stack, t_stack *cell)
 		last = getlast(*stack);
 		last->next = cell;
 	}
+}
+
+void	addfront(t_stack **stack, t_stack *cell)
+{
+	cell->next = *stack;
+	*stack = cell;
 }
 
 void	print_stack(t_stack *stack, char *name)
