@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/01 14:03:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/01 14:04:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_terminate(char *error_message, t_board *stack)
 
 void	check_arg(t_board *stack, char *av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (av[++i])
