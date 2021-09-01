@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/01 12:09:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/01 14:03:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,41 @@ void	ft_terminate(char *error_message, t_board *stack)
 	exit(EXIT_FAILURE);
 }
 
-void	check_arg(char *string, t_board *stack)
+void	check_arg(t_board *stack, char *av)
 {
 	int i;
 
-	i = -1;
-	while (string[++i])
-		if (!ft_isdigit(string[i]))
+	i = 0;
+	while (av[++i])
+		if (!ft_isdigit(av[i]))
 			ft_terminate(ERROR, stack);
 }
 
 // doesnt check for errors
-int	parse_input(t_board *stack, char **av)
+void	parse_input(t_board *stack, char **av)
 {
 	int	i;
-	int	arr[1000]
+	int	j;
+	int	count;
 
 	i = 0;
 	while (av[++i])
 	{
-		check_arg(av[i], stack);
+		count = 0;
+		j = 0;
+		check_arg(stack, av[i]);
+		while (av[++j])
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+				count++;
+		if (count != 1)
+			ft_terminate(ERROR, stack);
 		addback(&stack->a, new_cell(ft_atoi(av[i])));
 	}
-	return (1);
 }
 
 void	check_input(int ac, char **av, t_board *stack)
 {
 	if (ac < 2)
 		ft_terminate(ERROR, stack);
-	if (!parse_input(stack, av))
-		ft_terminate(ERROR, stack);
+	parse_input(stack, av);
 }
