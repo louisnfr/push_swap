@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:57:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 15:07:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_board	*init_board(void)
 	stack->a = malloc(sizeof(t_stack));
 	stack->b = malloc(sizeof(t_stack));
 	if (!stack || !stack->a || !stack->b)
-		ft_terminate(MALLOC, stack);
+		terminate(MALLOC, stack);
 	stack->a = NULL;
 	stack->b = NULL;
 	return (stack);

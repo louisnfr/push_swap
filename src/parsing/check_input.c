@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/01 15:18:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 15:06:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-void	ft_terminate(char *error_message, t_board *stack)
-{
-	free(stack);
-	ft_putstr_fd(error_message, 2);
-	exit(EXIT_FAILURE);
-}
+#include "../../include/push_swap.h"
 
 void	check_arg(t_board *stack, char *av)
 {
@@ -26,10 +19,9 @@ void	check_arg(t_board *stack, char *av)
 	i = 0;
 	while (av[++i])
 		if (!ft_isdigit(av[i]))
-			ft_terminate(ERROR, stack);
+			terminate(ERROR, stack);
 }
 
-// doesnt check for errors
 void	parse_input(t_board *stack, char **av)
 {
 	int	i;
@@ -47,7 +39,7 @@ void	parse_input(t_board *stack, char **av)
 				count++;
 		if (count != 1 || ft_atol(av[i]) > 2147483647
 			|| ft_atol(av[i]) < -2147483648)
-			ft_terminate(ERROR, stack);
+			terminate(ERROR, stack);
 		addback(&stack->a, new_cell(ft_atoi(av[i])));
 	}
 }
@@ -55,6 +47,6 @@ void	parse_input(t_board *stack, char **av)
 void	check_input(int ac, char **av, t_board *stack)
 {
 	if (ac < 2)
-		ft_terminate(ERROR, stack);
+		terminate(ERROR, stack);
 	parse_input(stack, av);
 }
