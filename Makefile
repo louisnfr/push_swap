@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/02 15:06:07 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/02 17:41:12 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ OBJ_PATH  = obj
 ### SOURCE FILES ###
 SOURCES = main.c \
 		exit/terminate.c \
+		exit/free.c \
 		parsing/check_input.c \
 		lists/utils.c \
 		lists/print.c \
@@ -64,7 +65,7 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)Project successfully compiled$(NOC)"
 
 tmp:
-	@mkdir -p obj/actions obj/parsing obj/lists obj/exit
+	@mkdir -p obj/actions obj/parsing obj/lists obj/exit obj/sort
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(FLAGS) -c -o $@ $<
