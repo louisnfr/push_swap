@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:56 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:11:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:51:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	push_a(t_board *stack)
 {
 	t_stack	*tmp;
 
+	if (!stack->b)
+		return ;
 	tmp = stack->b;
 	if (stack->a && stack->b)
 	{
@@ -35,6 +37,8 @@ void	push_b(t_board *stack)
 {
 	t_stack	*tmp;
 
+	if (!stack->a)
+		return ;
 	tmp = stack->a;
 	if (stack->a && stack->b)
 	{

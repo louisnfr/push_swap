@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:12:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:53:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	swap_a(t_board *stack)
 	t_stack	*second;
 	t_stack	*third;
 
+	if (!stack->a || !stack->a->next)
+		return ;
 	first = stack->a;
 	second = stack->a->next;
 	third = second->next;
@@ -32,6 +34,8 @@ void	swap_b(t_board *stack)
 	t_stack	*second;
 	t_stack	*third;
 
+	if (!stack->a || !stack->a->next)
+		return ;
 	first = stack->b;
 	second = stack->b->next;
 	third = second->next;

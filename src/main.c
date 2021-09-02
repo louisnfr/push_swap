@@ -6,28 +6,33 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 13:56:40 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:54:20 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	init_board(t_board **stack)
+t_board	*init_board(void)
 {
-	*stack = malloc(sizeof(t_board));
-	if (!(*stack))
-		ft_terminate(MALLOC, *stack);
-	(*stack)->a = NULL;
-	(*stack)->b = NULL;
+	t_board	*stack;
+
+	stack = malloc(sizeof(t_board));
+	stack->a = malloc(sizeof(t_stack));
+	stack->b = malloc(sizeof(t_stack));
+	if (!stack || !stack->a || !stack->b)
+		ft_terminate(MALLOC, stack);
+	stack->a = NULL;
+	stack->b = NULL;
+	return (stack);
 }
 
 int	main(int ac, char **av)
 {
 	t_board	*stack;
 
-	init_board(&stack);
+	stack = init_board();
 	check_input(ac, av, stack);
-	rotate_a(stack);
+	swap_ab(stack);
 	print_board(stack);
 	return (0);
 }

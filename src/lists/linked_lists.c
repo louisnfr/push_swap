@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 13:00:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:56:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 t_stack	*new_cell(int value)
 {
