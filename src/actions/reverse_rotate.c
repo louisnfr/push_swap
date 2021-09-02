@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:37 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:12:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:58:14 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rotate_a(t_board *stack)
 	t_stack	*tmp;
 	t_stack	*prev;
 
-	if (!stack->a)
+	if (!stack->a || !stack->a->next)
 		return ;
 	tmp = stack->a;
 	while (tmp->next)
@@ -35,7 +35,7 @@ void	reverse_rotate_b(t_board *stack)
 	t_stack	*tmp;
 	t_stack	*prev;
 
-	if (!stack->b)
+	if (!stack->b || !stack->b->next)
 		return ;
 	tmp = stack->b;
 	while (tmp->next)

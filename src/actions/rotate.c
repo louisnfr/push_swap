@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:48:00 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:12:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 14:58:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_a(t_board *stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if (!stack->a)
+	if (!stack->a || !stack->a->next)
 		return ;
 	last = getlast(stack->a);
 	tmp = stack->a;
@@ -31,7 +31,7 @@ void	rotate_b(t_board *stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if (!stack->b)
+	if (!stack->b || !stack->b->next)
 		return ;
 	last = getlast(stack->b);
 	tmp = stack->b;
