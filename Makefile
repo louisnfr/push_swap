@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/08/31 17:18:37 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/02 14:15:12 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ OBJ_PATH  = obj
 SOURCES = main.c \
 		errors.c \
 		linked_lists.c \
-		sort.c
+		actions/push.c \
+		actions/swap.c \
+		actions/rotate.c \
+		actions/reverse_rotate.c
 
 ### OBJECTS ###
 SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
@@ -59,7 +62,7 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)Project successfully compiled$(NOC)"
 
 tmp:
-	@mkdir -p obj
+	@mkdir -p obj/actions
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(FLAGS) -c -o $@ $<
