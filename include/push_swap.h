@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 12:50:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 13:06:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_stack(t_stack *stack, char *name);
 void	print_board(t_board *stack);
 void	addback(t_stack **stack, t_stack *cell);
 void	addfront(t_stack **stack, t_stack *cell);
-int		getnode(t_stack *stack, int index);
+t_stack	*getlast(t_stack *stack);
 
 /* lists */
 
@@ -55,5 +55,6 @@ void	swap_b(t_board *stack);
 void	swap_ab(t_board *stack);
 void	push_a(t_board *stack);
 void	push_b(t_board *stack);
+void	rotate_a(t_board *stack);
 
 #endif

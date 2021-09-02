@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 12:54:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 13:05:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ int	main(int ac, char **av)
 
 	init_board(&stack);
 	check_input(ac, av, stack);
-	push_b(stack);
-	print_board(stack);
-	push_a(stack);
+	rotate_a(stack);
 	print_board(stack);
 	return (0);
 }
