@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 17:00:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 17:29:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	main(int ac, char **av)
 	addback(&stack->b, new_cell(2));
 	addback(&stack->b, new_cell(3));
 	addback(&stack->b, new_cell(4));
-	pa(stack);
-	pa(stack);
+	rr(stack);
 	print_board(stack);
 	return (0);
 }
