@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:48:00 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 14:58:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 16:34:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rotate_a(t_board *stack)
+void	ra(t_board *stack)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -26,7 +26,7 @@ void	rotate_a(t_board *stack)
 	last->next = tmp;
 }
 
-void	rotate_b(t_board *stack)
+void	rb(t_board *stack)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -40,8 +40,8 @@ void	rotate_b(t_board *stack)
 	last->next = tmp;
 }
 
-void	rotate_ab(t_board *stack)
+void	rr(t_board *stack)
 {
-	rotate_a(stack);
-	rotate_b(stack);
+	ra(stack);
+	rb(stack);
 }

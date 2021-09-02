@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:56 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 15:09:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 16:33:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push_a(t_board *stack)
+void	pa(t_board *stack)
 {
 	t_stack	*tmp;
 
@@ -34,7 +34,7 @@ void	push_a(t_board *stack)
 	}
 }
 
-void	push_b(t_board *stack)
+void	pb(t_board *stack)
 {
 	t_stack	*tmp;
 

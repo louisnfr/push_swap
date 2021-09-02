@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:00:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 16:12:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 16:57:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	print_board(t_board *stack)
 	print_stack(stack->b, "b");
 	ft_putstr("---\n");
 }
-

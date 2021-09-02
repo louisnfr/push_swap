@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 15:57:00 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 16:30:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ t_stack	*getlast(t_stack *stack);
 
 /* actions */
 
-void	swap_a(t_board *stack);
-void	swap_b(t_board *stack);
-void	swap_ab(t_board *stack);
-void	push_a(t_board *stack);
-void	push_b(t_board *stack);
-void	rotate_a(t_board *stack);
-void	rotate_b(t_board *stack);
-void	rotate_ab(t_board *stack);
-void	reverse_rotate_a(t_board *stack);
-void	reverse_rotate_b(t_board *stack);
-void	reverse_rotate_ab(t_board *stack);
+void	sa(t_board *stack);
+void	sb(t_board *stack);
+void	ss(t_board *stack);
+void	pa(t_board *stack);
+void	pb(t_board *stack);
+void	ra(t_board *stack);
+void	rb(t_board *stack);
+void	rr(t_board *stack);
+void	rra(t_board *stack);
+void	rrb(t_board *stack);
+void	rrr(t_board *stack);
 
 #endif
