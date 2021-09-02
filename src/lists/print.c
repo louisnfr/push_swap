@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:00:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 15:00:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 16:12:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	print_stack(t_stack *stack, char *name)
 
 void	print_board(t_board *stack)
 {
-	ft_putstr("---\n");
+	ft_putstr("\n---\n");
 	print_stack(stack->a, "a");
 	ft_putstr("---\n");
 	print_stack(stack->b, "b");
 	ft_putstr("---\n");
 }
+

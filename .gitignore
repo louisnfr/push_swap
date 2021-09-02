@@ -39,6 +39,7 @@ push_swap
 *.hex
 
 # Debug files
+valgrind
 *.dSYM/
 *.su
 *.idb
