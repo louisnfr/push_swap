@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/01 18:08:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 12:51:22 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		getnode(t_stack *stack, int index)
 	{
 		stack = stack->next;
 	}
-	return stack;
+	return (stack->value);
 }
 
 t_stack	*getlast(t_stack *stack)
