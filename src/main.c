@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 17:29:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/02 17:34:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,17 @@ int	main(int ac, char **av)
 
 	stack = init_board();
 	check_input(ac, av, stack);
-	addback(&stack->b, new_cell(1));
-	addback(&stack->b, new_cell(2));
-	addback(&stack->b, new_cell(3));
-	addback(&stack->b, new_cell(4));
+	sa(stack);
+	sb(stack);
+	ss(stack);
+	pa(stack);
+	pb(stack);
+	ra(stack);
+	rb(stack);
 	rr(stack);
+	rra(stack);
+	rrb(stack);
+	rrr(stack);
 	print_board(stack);
 	return (0);
 }
