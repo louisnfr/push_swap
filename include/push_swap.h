@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 20:11:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 20:40:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		is_on_top(t_stack *stack, int x);
 void	bring_on_top_a(t_board *stack, int x);
 void	bring_on_top_b(t_board *stack, int x);
 int		is_empty(t_stack *stack);
+int		is_sorted(t_stack *stack);
 
 /* actions */
 

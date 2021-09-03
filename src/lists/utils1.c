@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:45:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 20:11:15 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 20:44:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,15 @@ int	is_empty(t_stack *stack)
 	if (stack == NULL)
 		return (1);
 	return (0);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
