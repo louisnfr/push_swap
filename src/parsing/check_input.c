@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 16:27:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 16:29:24 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	parse_input(t_board *stack, char **av)
 			|| ft_atol(av[i]) < -2147483648)
 			terminate(ERROR, stack);
 		addback(&stack->a, new_cell(ft_atoi(av[i])));
+		stack->length++;
 	}
 }
 

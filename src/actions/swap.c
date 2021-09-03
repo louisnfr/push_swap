@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 16:57:44 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 16:37:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ void	sa(t_board *stack)
 {
 	stack->a = swap(stack->a);
 	write(1, "sa\n", 3);
+	stack->moves++;
 }
 
 void	sb(t_board *stack)
 {
 	stack->b = swap(stack->b);
 	write(1, "sb\n", 3);
+	stack->moves++;
 }
 
 void	ss(t_board *stack)
@@ -44,4 +46,5 @@ void	ss(t_board *stack)
 	stack->a = swap(stack->a);
 	stack->b = swap(stack->b);
 	write(1, "ss\n", 3);
+	stack->moves++;
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:56 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 17:01:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 16:37:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	pa(t_board *stack)
 
 	if (!stack->b)
 		return ;
-	write(1, "pa\n", 3);
 	tmp = stack->b;
 	if (stack->a && stack->b)
 	{
@@ -32,6 +31,8 @@ void	pa(t_board *stack)
 		tmp->next = NULL;
 		stack->a = tmp;
 	}
+	write(1, "pa\n", 3);
+	stack->moves++;
 }
 
 void	pb(t_board *stack)
@@ -40,7 +41,6 @@ void	pb(t_board *stack)
 
 	if (!stack->a)
 		return ;
-	write(1, "pb\n", 3);
 	tmp = stack->a;
 	if (stack->a && stack->b)
 	{
@@ -54,4 +54,6 @@ void	pb(t_board *stack)
 		tmp->next = NULL;
 		stack->b = tmp;
 	}
+	write(1, "pb\n", 3);
+	stack->moves++;
 }

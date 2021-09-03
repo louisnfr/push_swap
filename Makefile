@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/02 17:41:12 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/03 16:42:01 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,16 @@ OBJ_PATH  = obj
 
 ### SOURCE FILES ###
 SOURCES = main.c \
-		exit/terminate.c \
-		exit/free.c \
 		parsing/check_input.c \
-		lists/utils.c \
-		lists/print.c \
 		actions/push.c \
 		actions/swap.c \
 		actions/rotate.c \
-		actions/reverse_rotate.c
+		actions/reverse_rotate.c \
+		sort/small_sort.c \
+		lists/utils.c \
+		lists/print.c \
+		exit/terminate.c \
+		exit/free.c
 
 ### OBJECTS ###
 SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
