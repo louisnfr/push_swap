@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/03 16:42:01 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/03 19:39:14 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ SOURCES = main.c \
 		actions/rotate.c \
 		actions/reverse_rotate.c \
 		sort/small_sort.c \
-		lists/utils.c \
+		lists/utils0.c \
+		lists/utils1.c \
+		lists/utils2.c \
 		lists/print.c \
 		exit/terminate.c \
 		exit/free.c

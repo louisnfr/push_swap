@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 16:46:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 20:11:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ void	print_board(t_board *stack);
 void	addback(t_stack **stack, t_stack *cell);
 void	addfront(t_stack **stack, t_stack *cell);
 t_stack	*getlast(t_stack *stack);
+int		len(t_stack *stack);
+int		smallest(t_stack *stack);
+int		largest(t_stack *stack);
+int		where_is(int x, t_stack *stack);
+int		is_on_top(t_stack *stack, int x);
+void	bring_on_top_a(t_board *stack, int x);
+void	bring_on_top_b(t_board *stack, int x);
+int		is_empty(t_stack *stack);
 
 /* actions */
 
@@ -70,6 +78,6 @@ void	rrr(t_board *stack);
 
 /* sort */
 
-void	sort_3(t_board *stack);
+void	small_sort(t_board *stack);
 
 #endif
