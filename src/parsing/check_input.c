@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 16:16:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 16:27:45 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@ void	check_arg(t_board *stack, char *av)
 {
 	int	i;
 
-	i = 0;
+	if (ft_strcmp(av, "-") == 0 || ft_strcmp(av, "+") == 0)
+		terminate(ERROR, stack);
+	if (av[0] == '-' || av[0] == '+')
+		i = 0;
+	else
+		i = -1;
 	while (av[++i])
 		if (!ft_isdigit(av[i]))
 			terminate(ERROR, stack);

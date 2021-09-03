@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 18:39:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 13:59:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				length;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -32,6 +33,7 @@ typedef struct s_board
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		moves;
 }	t_board;
 
 /* exit */
