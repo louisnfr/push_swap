@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:38:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 20:11:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/03 20:25:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_3(t_board *stack)
 	}
 }
 
-void	prep_set(t_board *stack)
+void	prep_4_5(t_board *stack)
 {
 	int	large;
 	int	small;
@@ -72,7 +72,7 @@ void	sort_4_5(t_board *stack)
 	int	s_len;
 
 	s_len = len(stack->a);
-	prep_set(stack);
+	prep_4_5(stack);
 	sort_3(stack);
 	if (s_len == 5)
 	{
