@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 11:56:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/04 13:15:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	parse_string(t_board *stack, char **av)
 void	check_input(int ac, char **av, t_board *stack)
 {
 	if (ac < 2)
-		terminate(ERROR, stack);
+		terminate("", stack);
 	if (ac == 2)
 		parse_string(stack, av);
 	else
