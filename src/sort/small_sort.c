@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:38:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 13:13:33 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/04 17:08:19 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	sort_4_5(t_board *stack)
 	pa(stack);
 	if (is_empty(stack->a))
 		terminate(ERROR, stack);
-	// free_all(stack);
 }
 
 void	small_sort(t_board *stack)

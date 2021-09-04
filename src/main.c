@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 15:17:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/04 16:56:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int ac, char **av)
 		free_all(stack);
 	if (stack->length <= 5)
 		small_sort(stack);
-	// else
-	// 	sort(stack);
-	// print_board(stack);
+	else
+		sort(stack);
+	print_board(stack);
 	free_all(stack);
 	return (0);
 }
