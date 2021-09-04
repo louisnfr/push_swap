@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 20:40:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/04 11:35:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_board
 
 void	terminate(char *error_message, t_board *stack);
 void	free_all(t_board *stack);
+void	free_split(char **args, size_t size);
 
 /* parsing */
 
