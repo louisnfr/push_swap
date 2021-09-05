@@ -6,41 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 18:01:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 18:43:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-void	sort_array(int *array, int n)
-{
-	int	i;
-
-	i = 0;
-	while (i < n - 1)
-	{
-		if (array[i] > array[i + 1])
-		{
-			ft_swap(&array[i], &array[i + 1]);
-			i = 0;
-		}
-		else
-			i++;
-	}
-}
-
-void	get_array(t_stack *stack, int *array)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		array[i] = stack->value;
-		stack = stack->next;
-		i++;
-	}
-}
 
 void	get_quartiles(t_board *stack, int *array, t_math *math)
 {
@@ -85,7 +55,7 @@ void	sort_5_100(t_board *stack, t_math *math)
 	while (!is_empty(stack->a))
 		pb(stack);
 	while (!is_empty(stack->b))
-		bring_b_push_a(stack);
+		bring_b_push_a(stack, largest(stack->b));
 }
 
 void	medium_sort(t_board *stack)
