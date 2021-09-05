@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 12:00:10 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 17:23:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef struct s_stack
 }	t_stack;
 
 typedef struct s_board
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		moves;
+	int		length;
+}	t_board;
+
+typedef struct s_quart
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -85,6 +93,6 @@ void	sort_2(t_board *stack);
 void	sort_3(t_board *stack);
 void	prep_4_5(t_board *stack);
 void	sort_4_5(t_board *stack);
-void	sort(t_board *stack);
+void	sort_5_100(t_board *stack);
 
 #endif
