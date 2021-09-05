@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 14:31:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 15:23:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ void	sort(t_board *stack)
 	// 		pb(stack);
 	// 	else
 	// 		ra(stack);
-
+	int q1 = array[stack->length / 4];
+	int q2 = array[stack->length * 2 / 4];
+	int q3 = array[q1 * 2];
+	printf("\n\nq1: %d\nq2: %d\nq3: %d\n", q1, q2, q3);
 }
