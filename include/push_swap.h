@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 16:56:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 12:00:10 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ void	rrr(t_board *stack);
 /* sort */
 
 void	small_sort(t_board *stack);
+void	sort_2(t_board *stack);
+void	sort_3(t_board *stack);
+void	prep_4_5(t_board *stack);
+void	sort_4_5(t_board *stack);
 void	sort(t_board *stack);
 
 #endif
