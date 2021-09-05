@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/05 16:45:16 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/05 17:38:08 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,15 @@ OBJ_PATH  = obj
 
 ### SOURCE FILES ###
 SOURCES = main.c \
+		init/init.c \
 		parsing/check_input.c \
 		actions/push.c \
 		actions/swap.c \
 		actions/rotate.c \
 		actions/reverse_rotate.c \
 		sort/small_sort.c \
-		sort/sort_5_100.c \
+		sort/medium_sort.c \
+		sort/large_sort.c \
 		lists/utils0.c \
 		lists/utils1.c \
 		lists/utils2.c \
@@ -69,7 +71,7 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)Project successfully compiled$(NOC)"
 
 tmp:
-	@mkdir -p obj/actions obj/parsing obj/lists obj/exit obj/sort
+	@mkdir -p obj/actions obj/parsing obj/lists obj/exit obj/sort obj/init
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(FLAGS) -c -o $@ $<

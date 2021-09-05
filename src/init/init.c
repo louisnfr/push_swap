@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 17:48:08 by lraffin          ###   ########.fr       */
+/*   Created: 2021/09/05 17:26:38 by lraffin           #+#    #+#             */
+/*   Updated: 2021/09/05 17:33:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int ac, char **av)
+t_board	*init_board(void)
 {
 	t_board	*stack;
 
-	stack = init_board();
-	check_input(ac, av, stack);
-	if (is_sorted(stack->a))
-		free_all(stack);
-	if (stack->length <= 5)
-		small_sort(stack);
-	else if (stack->length <= 100)
-		medium_sort(stack);
-	else
-		printf("WIP 500\n");
-	// print_board(stack);
-	free_all(stack);
-	return (0);
+	stack = malloc(sizeof(t_board));
+	if (!stack)
+		terminate(MALLOC, stack);
+	stack->a = NULL;
+	stack->b = NULL;
+	stack->moves = 0;
+	stack->length = 0;
+	return (stack);
 }

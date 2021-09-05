@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_5_100.c                                       :+:      :+:    :+:   */
+/*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 17:21:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 17:47:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,56 +42,42 @@ void	get_array(t_stack *stack, int *array)
 	}
 }
 
-void	get_quartiles(t_board *stack, int *array, int *q1, int *q2, int *q3)
+void	get_quartiles(t_board *stack, int *array, t_math *math)
 {
 	if (stack->length % 2 == 0)
 	{
-		*q1 = array[stack->length * 1 / 4];
-		*q2 = (array[(stack->length * 2 / 4)]
+		math->q1 = array[stack->length * 1 / 4];
+		math->q2 = (array[(stack->length * 2 / 4)]
 				+ array[(stack->length - 1) * 2 / 4]) / 2;
-		*q3 = array[stack->length * 3 / 4];
+		math->q3 = array[stack->length * 3 / 4];
 	}
 	else
 	{
-		*q1 = array[stack->length * 1 / 4];
-		*q2 = array[stack->length * 2 / 4];
-		*q3 = array[stack->length * 3 / 4];
+		math->q1 = array[stack->length * 1 / 4];
+		math->q2 = array[stack->length * 2 / 4];
+		math->q3 = array[stack->length * 3 / 4];
 	}
 }
 
-void	sort_5_100(t_board *stack)
+void	sort_5_100(t_board *stack, t_math *math)
 {
-	int		*array;
-	int		q1;
-	int		q2;
-	int		q3;
-
-	array = malloc(sizeof(int) * stack->length);
-	if (!array)
-		terminate(ERROR, stack);
-	get_array(stack->a, array);
-	sort_array(array, stack->length);
-	for (int i=0; i<stack->length; i++)
-		printf("%d ", array[i]);
-	get_quartiles(stack, array, &q1, &q2, &q3);
-	free(array);
-	while (smallest(stack->a) <= q1)
+	while (smallest(stack->a) <= math->q1)
 	{
-		if (stack->a->value <= q1)
+		if (stack->a->value <= math->q1)
 			pb(stack);
 		else
 			ra(stack);
 	}
-	while (smallest(stack->a) <= q2)
+	while (smallest(stack->a) <= math->q2)
 	{
-		if (stack->a->value <= q2)
+		if (stack->a->value <= math->q2)
 			pb(stack);
 		else
 			ra(stack);
 	}
-	while (smallest(stack->a) <= q3)
+	while (smallest(stack->a) <= math->q3)
 	{
-		if (stack->a->value <= q3)
+		if (stack->a->value <= math->q3)
 			pb(stack);
 		else
 			ra(stack);
@@ -103,4 +89,21 @@ void	sort_5_100(t_board *stack)
 		bring_on_top_b(stack, largest(stack->b));
 		pa(stack);
 	}
+}
+
+void	medium_sort(t_board *stack)
+{
+	t_math	*math;
+	int		*array;
+
+	math = malloc(sizeof(t_math));
+	array = malloc(sizeof(int) * stack->length);
+	if (!array || !math)
+		terminate(ERROR, stack);
+	get_array(stack->a, array);
+	sort_array(array, stack->length);
+	get_quartiles(stack, array, math);
+	free(array);
+	sort_5_100(stack, math);
+	free(math);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 17:23:29 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 17:35:37 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ typedef struct s_board
 	int		length;
 }	t_board;
 
-typedef struct s_quart
+typedef struct s_math
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		moves;
-	int		length;
-}	t_board;
+	int	q1;
+	int	q2;
+	int	q3;
+}	t_math;
 
 /* exit */
 
@@ -53,6 +52,10 @@ void	free_split(char **args, size_t size);
 /* parsing */
 
 void	check_input(int ac, char **av, t_board *stack);
+
+/* init */
+
+t_board	*init_board(void);
 
 /* lists */
 
@@ -93,6 +96,6 @@ void	sort_2(t_board *stack);
 void	sort_3(t_board *stack);
 void	prep_4_5(t_board *stack);
 void	sort_4_5(t_board *stack);
-void	sort_5_100(t_board *stack);
+void	medium_sort(t_board *stack);
 
 #endif
