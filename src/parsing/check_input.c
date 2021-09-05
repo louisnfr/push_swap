@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 22:16:25 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 22:22:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,35 +66,29 @@ void	parse_string(t_board *stack, char **av)
 {
 	char	**args;
 	int		count;
-	int		c;
 	int		i;
 	int		j;
 
 	args = ft_split(av[1], ' ');
-	c = count_args(args);
 	i = -1;
 	while (args[++i])
 	{
 		count = 0;
 		j = -1;
-		if (!check_arg(args[i]))
-		{
-			free_split(args, c);
-			terminate(ERROR, stack);
-		}
 		while (args[++j])
 			if (ft_atoi(args[i]) == ft_atoi(args[j]))
 				count++;
-		if (count != 1 || ft_atol(args[i]) > 2147483647
+		if (!check_arg(args[i]) || count != 1
+			|| ft_atol(args[i]) > 2147483647
 			|| ft_atol(args[i]) < -2147483648)
 		{
-			free_split(args, c);
+			free_split(args, count_args(args));
 			terminate(ERROR, stack);
 		}
 		addback(&stack->a, new_cell(ft_atoi(args[i])));
 		stack->length++;
 	}
-	free_split(args, c);
+	free_split(args, count_args(args));
 }
 
 void	check_input(int ac, char **av, t_board *stack)
