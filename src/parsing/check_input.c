@@ -6,25 +6,36 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 13:15:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 22:16:25 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	check_arg(t_board *stack, char *av)
+int	count_args(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av && av[i])
+		i++;
+	return (i);
+}
+
+int	check_arg(char *av)
 {
 	int	i;
 
 	if (ft_strcmp(av, "-") == 0 || ft_strcmp(av, "+") == 0)
-		terminate(ERROR, stack);
+		return (0);
 	if (av[0] == '-' || av[0] == '+')
 		i = 0;
 	else
 		i = -1;
 	while (av[++i])
 		if (!ft_isdigit(av[i]))
-			terminate(ERROR, stack);
+			return (0);
+	return (1);
 }
 
 void	parse_args(t_board *stack, char **av)
@@ -38,7 +49,8 @@ void	parse_args(t_board *stack, char **av)
 	{
 		count = 0;
 		j = 0;
-		check_arg(stack, av[i]);
+		if (!check_arg(av[i]))
+			terminate(ERROR, stack);
 		while (av[++j])
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				count++;
@@ -52,28 +64,37 @@ void	parse_args(t_board *stack, char **av)
 
 void	parse_string(t_board *stack, char **av)
 {
+	char	**args;
+	int		count;
+	int		c;
 	int		i;
 	int		j;
-	int		count;
-	char	**args;
 
 	args = ft_split(av[1], ' ');
+	c = count_args(args);
 	i = -1;
 	while (args[++i])
 	{
 		count = 0;
 		j = -1;
-		check_arg(stack, args[i]);
+		if (!check_arg(args[i]))
+		{
+			free_split(args, c);
+			terminate(ERROR, stack);
+		}
 		while (args[++j])
 			if (ft_atoi(args[i]) == ft_atoi(args[j]))
 				count++;
 		if (count != 1 || ft_atol(args[i]) > 2147483647
 			|| ft_atol(args[i]) < -2147483648)
+		{
+			free_split(args, c);
 			terminate(ERROR, stack);
+		}
 		addback(&stack->a, new_cell(ft_atoi(args[i])));
 		stack->length++;
 	}
-	free_split(args, stack->length);
+	free_split(args, c);
 }
 
 void	check_input(int ac, char **av, t_board *stack)
