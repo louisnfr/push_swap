@@ -13,8 +13,8 @@ At least **6 points** to pass :
 ##### With 100 numbers :
 
 5/5 if less than 700 <br />
-[x] 4/5 if less than 900 <br />
-[x] 3/5 if less than 1100 <br />
+4/5 if less than 900 <br />
+3/5 if less than 1100 <br />
 2/5 if less than 1300 <br />
 1/5 if less than 1500 <br />
 
