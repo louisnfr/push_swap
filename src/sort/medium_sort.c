@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 22:37:20 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 22:48:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ void	medium_sort(t_board *stack)
 	quart = malloc(sizeof(t_quart));
 	array = malloc(sizeof(int) * stack->length);
 	if (!array || !quart)
+	{
+		free(quart);
+		free(array);
 		terminate(ERROR, stack);
+	}
 	get_array(stack->a, array);
 	sort_array(array, stack->length);
 	get_quartiles(stack, array, quart);

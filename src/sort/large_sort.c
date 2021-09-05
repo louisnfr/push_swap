@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 22:46:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 22:48:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ void	large_sort(t_board *stack)
 	chunks = malloc(sizeof(t_chunk));
 	array = malloc(sizeof(int) * stack->length);
 	if (!array || !chunks)
+	{
+		free(array);
+		free(chunks);
 		terminate(ERROR, stack);
+	}
 	get_array(stack->a, array);
 	sort_array(array, stack->length);
 	free(array);
