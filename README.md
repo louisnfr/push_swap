@@ -4,31 +4,24 @@
 
 This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. To succeed you’ll have to manipulate various types of algorithms and choose the one (of many) most appropriate solution for an optimized data sorting
 
-With 3 numbers, we need to sort it with not more than 3 instructions.
-With 5 numbers, we need to sort it with not more than 12 instructions.
+#### Points and maximal actions
 
-With 100 numbers :
+3 numbers, 3 or less. <br />
+5 numbers, 12 or less. <br />
 
-5/5 if less than 700
+At least **6 points** to pass :
+##### With 100 numbers :
 
-4/5 if less than 900
+5/5 if less than 700 <br />
+[x] 4/5 if less than 900 <br />
+[x] 3/5 if less than 1100 <br />
+2/5 if less than 1300 <br />
+1/5 if less than 1500 <br />
 
-3/5 if less than 1100
+##### With 500 numbers :
 
-2/5 if less than 1300
-
-1/5 if less than 1500
-
-With 500 numbers :
-
-5/5 if less than 5500
-
-4/5 if less than 7000
-
-3/5 if less than 8500
-
-2/5 if less than 10000
-
-1/5 if less than 11500
-
-At least 6 points to pass
+5/5 if less than 5500 <br />
+4/5 if less than 7000 <br />
+3/5 if less than 8500 <br />
+2/5 if less than 10000 <br />
+1/5 if less than 11500 <br />
