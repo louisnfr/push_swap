@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:38:20 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/04 17:06:51 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 18:00:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ void	bring_on_top_b(t_board *stack, int x)
 	else
 		while (!is_on_top(stack->b, x))
 			rrb(stack);
+}
+
+void	bring_b_push_a(t_board *stack)
+{
+	bring_on_top_b(stack, largest(stack->b));
+	pa(stack);
 }

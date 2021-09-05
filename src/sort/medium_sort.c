@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 17:47:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/05 18:01:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,7 @@ void	sort_5_100(t_board *stack, t_math *math)
 	while (!is_empty(stack->a))
 		pb(stack);
 	while (!is_empty(stack->b))
-	{
-		bring_on_top_b(stack, largest(stack->b));
-		pa(stack);
-	}
+		bring_b_push_a(stack);
 }
 
 void	medium_sort(t_board *stack)
