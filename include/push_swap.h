@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 18:03:12 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 19:44:58 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_board
 	int		moves;
 	int		length;
 }	t_board;
-
 
 typedef struct s_chunk
 {
@@ -109,5 +108,12 @@ void	medium_sort(t_board *stack);
 void	sort_array(int *array, int n);
 void	get_array(t_stack *stack, int *array);
 void	large_sort(t_board *stack);
+
+/* sort utils */
+
+void	pb_q2(t_board *stack, t_quart *quart);
+void	sort_rest_a(t_board *stack);
+void	half_on_a(t_board *stack, t_quart *quart);
+void	ra_sorted_half_on_b(t_board *stack, t_quart *quart, int max);
 
 #endif
