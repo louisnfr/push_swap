@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:38:20 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 18:44:18 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 22:30:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	is_on_top(t_stack *stack, int x)
 {

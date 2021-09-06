@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:00:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/02 16:57:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 22:29:51 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	print_stack(t_stack *stack, char *name)
 {

@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:40:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 21:18:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 22:29:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	free_stack(t_stack *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 18:35:36 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 18:40:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 22:30:42 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	sort_array(int *array, int n)
 {

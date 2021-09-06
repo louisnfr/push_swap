@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/06 19:21:05 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/06 22:34:45 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,16 @@ FLAGS  = -Wall -Wextra -Werror
 
 ### EXECUTABLE ###
 NAME   = push_swap
-
+CHECKER = checker
 ### INCLUDES ###
-HEADER = include
+INCLUDE = include
 LIBFT  = libft
 SRC_PATH  = src
 OBJ_PATH  = obj
 
 ### SOURCE FILES ###
 SOURCES = main.c \
+		checker/checker.c \
 		init/init.c \
 		parsing/check_input.c \
 		actions/push.c \
@@ -69,14 +70,14 @@ lib:
 	@make -C $(LIBFT)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lft
+	-$(CC) $(FLAGS) -L $(LIBFT) -o $@ $^ -lft
 	@echo "$(GREEN)Project successfully compiled$(NOC)"
 
 tmp:
-	@mkdir -p obj/actions obj/parsing obj/lists obj/exit obj/sort obj/init
+	@mkdir -p obj/actions obj/parsing obj/lists obj/exit obj/sort obj/init obj/checker
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
-	@$(CC) $(FLAGS) -c -o $@ $<
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCLUDE)/$(NAME).h
+	@$(CC) $(FLAGS) -I$(INCLUDE) -c -o $@ $<
 	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(GREEN)[Done]$(NOC)"
 
 clean:
@@ -94,7 +95,7 @@ re: fclean all
 
 norm:
 	-@norminette $(SRC)
-	-@norminette $(HEADER)
+	-@norminette $(INCLUDE)
 
 push:
 	git add .
@@ -102,4 +103,4 @@ push:
 	git commit -m push_swap
 	git push
 
-.PHONY:	re, clean, fclean, tmp, norm, push
+.PHONY:	re, clean, fclean, tmp, norm, push, checker
