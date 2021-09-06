@@ -40,6 +40,7 @@ push_swap
 
 # Debug files
 valgrind
+trace
 *.dSYM/
 *.su
 *.idb

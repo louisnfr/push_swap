@@ -15,7 +15,7 @@
 MAX=0
 ITERATIONS=0
 LIMIT=700
-FILE=problem_100
+FILE=trace
 SUM=0
 
 for i in {1..100}
