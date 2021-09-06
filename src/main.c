@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 17:20:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 18:13:53 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	main(int ac, char **av)
 		medium_sort(stack); */
 	else
 		medium_sort(stack);
-
-
 	// print_board(stack);
 	free_all(stack);
 	return (0);

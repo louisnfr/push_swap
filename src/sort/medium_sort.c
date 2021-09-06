@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 18:04:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 18:45:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ void	get_quartiles(t_stack *stack, t_quart *quart)
 void	sort_5_100(t_board *stack)
 {
 	t_quart	*quart;
+	int		max_b;
 
 	quart = malloc(sizeof(t_quart));
 	if (!quart)
 		return ;
+
 	get_quartiles(stack->a, quart);
 	while (smallest(stack->a) <= quart->q2)
 	{
@@ -56,67 +58,86 @@ void	sort_5_100(t_board *stack)
 			pb(stack);
 		else
 			ra(stack);
-		printf("%d\n%d\n", quart->q2, smallest(stack->a));
 	}
 
-	// get_quartiles(stack->b);
-	// while (largest(stack->b) >= stack->b->q1)
-	// {
-	// 	if (stack->b->value == smallest(stack->b))
-	// 	{
-	// 		pa(stack);
-	// 		ra(stack);
-	// 	}
-	// 	if (stack->b->value == largest(stack->b))
-	// 		pa(stack);
-	// 	if (stack->b->value >= stack->b->q1)
-	// 		pa(stack);
-	// 	rb(stack);
-	// }
-	// while (!is_empty(stack->b))
-	// {
-	// 	if (stack->b->value == smallest(stack->b))
-	// 	{
-	// 		pa(stack);
-	// 		ra(stack);
-	// 	}
-	// 	else if (stack->b->value == largest(stack->b))
-	// 		pa(stack);
-	// 	rb(stack);
-	// 	bring_b_push_a(stack, smallest(stack->b));
-	// 	ra(stack);
-	// }
-	// while (stack->a->value <= stack->b->q2)
-	// 	pb(stack);
-	// while (largest(stack->b) >= stack->b->q2)
-	// {
-	// 	if (stack->b->value == smallest(stack->b))
-	// 	{
-	// 		pa(stack);
-	// 		ra(stack);
-	// 	}
-	// 	if (stack->b->value == largest(stack->b))
-	// 		pa(stack);
-	// 	if (stack->b->value >= stack->b->q2)
-	// 		pa(stack);
-	// 	else
-	// 		rb(stack);
-	// }
-	// while (!is_empty(stack->b))
-	// {
-	// 	if (stack->b->value == smallest(stack->b))
-	// 	{
-	// 		pa(stack);
-	// 		ra(stack);
-	// 	}
-	// 	else if (stack->b->value == largest(stack->b))
-	// 		pa(stack);
-	// 	else
-	// 		rb(stack);
-	// 	// bring_b_push_a(stack, smallest(stack->b));
-	// 	// ra(stack);
-	// }
+	get_quartiles(stack->b, quart);
+	max_b = largest(stack->b);
+	while (largest(stack->b) >= quart->q2)
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value >= quart->q2)
+			pa(stack);
+		else
+			rb(stack);
+	}
+	while (stack->b && !is_empty(stack->b))
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value == largest(stack->b))
+			pa(stack);
+		else
+			rb(stack);
+	}
+	while (stack->a->value <= quart->q2)
+		ra(stack);
+	while (stack->a->value >= quart->q2 && stack->a->value <= max_b)
+		pb(stack);
 
+	// same
+	get_quartiles(stack->b, quart);
+	max_b = largest(stack->b);
+	while (largest(stack->b) >= quart->q2)
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value >= quart->q2)
+			pa(stack);
+		else
+			rb(stack);
+	}
+	while (stack->b && !is_empty(stack->b))
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value == largest(stack->b))
+			pa(stack);
+		else
+			rb(stack);
+	}
+	while (stack->a->value <= quart->q2)
+		ra(stack);
+	while (stack->a->value >= quart->q2 && stack->a->value <= max_b)
+		pb(stack);
+	while (stack->b && !is_empty(stack->b))
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value == largest(stack->b))
+			pa(stack);
+		else
+			rb(stack);
+	}
+	while (stack->a->value <= quart->q3)
+		ra(stack);
+
+	free(quart);
 }
 
 void	medium_sort(t_board *stack)
