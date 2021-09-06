@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:38:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/05 18:47:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 19:49:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,6 @@ void	small_sort(t_board *stack)
 		sort_3(stack);
 	else if (stack->length <= 5)
 		sort_4_5(stack);
+	else if (stack->length <= 10)
+		printf("check\n");
 }

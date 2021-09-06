@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 19:44:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 19:48:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	get_quartiles(t_stack *stack, t_quart *quart)
 	free(array);
 }
 
-void	sort_5_100(t_board *stack, t_quart *quart)
+void	sort_10_100(t_board *stack, t_quart *quart)
 {
 	int	max;
 
@@ -72,9 +72,10 @@ void	medium_sort(t_board *stack)
 	quart = malloc(sizeof(t_quart));
 	if (!quart)
 		return ;
-	sort_5_100(stack, quart);
+	sort_10_100(stack, quart);
 	free(quart);
 }
+
 /*
 divise le bloc en deux pb_q2()
 calcul quartiles de B
