@@ -31,6 +31,7 @@ obj/
 
 # Executables
 push_swap
+checker
 *.exe
 *.out
 *.app
