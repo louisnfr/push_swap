@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 18:56:27 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 19:00:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	sort_5_100(t_board *stack)
 			ra(stack);
 	}
 
-	// calcule quartiles de B
+	// calcul quartiles de B
 	get_quartiles(stack->b, quart);
 	max_b = largest(stack->b);
 
@@ -117,7 +117,62 @@ void	sort_5_100(t_board *stack)
 	while (stack->a->value >= quart->q2 && stack->a->value <= max_b)
 		ra(stack);
 
-	
+	//on envoie le deuxieme bloc
+	while (stack->a->value >= max_b)
+		pb(stack);
+
+	get_quartiles(stack->b, quart);
+	max_b = largest(stack->b);
+
+	// plus grande moitie sur pa
+	while (largest(stack->b) >= quart->q2)
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value >= quart->q2)
+			pa(stack);
+		else
+			rb(stack);
+	}
+	// on tri le reste en remettant sur a
+	while (stack->b && !is_empty(stack->b))
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value == largest(stack->b))
+			pa(stack);
+		else
+			rb(stack);
+	}
+	// on envoie la partie triee en bas
+	while (stack->a->value <= quart->q2)
+		ra(stack);
+	// on recupere sur b la plus grande moitie
+	while (stack->a->value >= quart->q2 && stack->a->value <= max_b)
+		pb(stack);
+
+	// on tri le reste en remettant sur a
+	while (stack->b && !is_empty(stack->b))
+	{
+		if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack);
+			ra(stack);
+		}
+		else if (stack->b->value == largest(stack->b))
+			pa(stack);
+		else
+			rb(stack);
+	}
+	// envoie la partie triee en bas
+	while (stack->a->value >= quart->q2 && stack->a->value <= max_b)
+		ra(stack);
 
 	free(quart);
 }
@@ -126,51 +181,3 @@ void	medium_sort(t_board *stack)
 {
 	sort_5_100(stack);
 }
-
-/*
-old medium sort
-
-while (smallest(stack->a) <= quart->q1)
-{
-	if (stack->a->value <= quart->q1)
-		pb(stack);
-	else
-		ra(stack);
-}
-while (smallest(stack->a) <= quart->q2)
-{
-	if (stack->a->value <= quart->q2)
-		pb(stack);
-	else
-		ra(stack);
-}
-while (smallest(stack->a) <= quart->q3)
-{
-	if (stack->a->value <= quart->q3)
-		pb(stack);
-	else
-		ra(stack);
-}
-while (!is_empty(stack->a) && (!is_sorted(stack->a)))
-	bring_a_push_b(stack, smallest(stack->a));
-while (!is_empty(stack->b))
-	bring_b_push_a(stack, largest(stack->b));
- */
-
-
-// void	get_quartiles(t_board *stack, int *array, t_quart *quart)
-// {
-// 	if (stack->length % 2 == 0)
-// 	{
-// 		quart->q1 = array[stack->length * 1 / 4];
-// 		quart->q2 = (array[(stack->length * 2 / 4)]
-// 				+ array[(stack->length - 1) * 2 / 4]) / 2;
-// 		quart->q3 = array[stack->length * 3 / 4];
-// 	}
-// 	else
-// 	{
-// 		quart->q1 = array[stack->length * 1 / 4];
-// 		quart->q2 = array[stack->length * 2 / 4];
-// 		quart->q3 = array[stack->length * 3 / 4];
-// 	}
-// }
