@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:48:00 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/03 16:38:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 17:46:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*rotate(t_stack	*stack)
 		return (stack);
 	last = getlast(stack);
 	tmp = stack;
+	// tmp->q1 = 
 	stack = stack->next;
 	tmp->next = NULL;
 	last->next = tmp;

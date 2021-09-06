@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 16:56:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 18:03:12 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
-	int	q1;
-	int	q2;
-	int	q3;
 }	t_stack;
 
 typedef struct s_board
@@ -85,7 +82,7 @@ void	bring_on_top_a(t_board *stack, int x);
 void	bring_on_top_b(t_board *stack, int x);
 void	bring_b_push_a(t_board *stack, int x);
 void	bring_a_push_b(t_board *stack, int x);
-void	get_quartiles(t_stack *stack);
+void	get_quartiles(t_stack *stack, t_quart *quart);
 
 /* actions */
 
