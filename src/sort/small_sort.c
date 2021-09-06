@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:38:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 19:49:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 20:35:23 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,6 @@ void	sort_3(t_board *stack)
 	}
 }
 
-void	prep_4_5(t_board *stack)
-{
-	bring_a_push_b(stack, smallest(stack->a));
-	if (len(stack->a) > 3)
-		bring_a_push_b(stack, largest(stack->a));
-}
-
 void	sort_4_5(t_board *stack)
 {
 	int	s_len;
@@ -73,6 +66,35 @@ void	sort_4_5(t_board *stack)
 		terminate(ERROR, stack);
 }
 
+void	sort_20(t_board *stack)
+{
+	t_quart	*quart;
+	int		max;
+
+	quart = malloc(sizeof(t_quart));
+	if (!quart)
+		return ;
+	get_quartiles(stack->a, quart);
+	pb_q2(stack, quart);
+	get_quartiles(stack->b, quart);
+	max = largest(stack->b);
+	while (stack->b && !is_empty(stack->b))
+	{
+		bring_b_push_a(stack, smallest(stack->b));
+		ra(stack);
+	}
+	while (stack->a->value <= max)
+		ra(stack);
+	while (stack->a->value >= max)
+		pb(stack);
+	while (stack->b && !is_empty(stack->b))
+	{
+		bring_b_push_a(stack, smallest(stack->b));
+		ra(stack);
+	}
+	free(quart);
+}
+
 void	small_sort(t_board *stack)
 {
 	if (stack->length <= 1)
@@ -83,6 +105,6 @@ void	small_sort(t_board *stack)
 		sort_3(stack);
 	else if (stack->length <= 5)
 		sort_4_5(stack);
-	else if (stack->length <= 10)
-		printf("check\n");
+	else
+		sort_20(stack);
 }

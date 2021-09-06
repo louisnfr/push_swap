@@ -6,11 +6,18 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 19:40:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/06 19:52:35 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+void	prep_4_5(t_board *stack)
+{
+	bring_a_push_b(stack, smallest(stack->a));
+	if (len(stack->a) > 3)
+		bring_a_push_b(stack, largest(stack->a));
+}
 
 void	pb_q2(t_board *stack, t_quart *quart)
 {
