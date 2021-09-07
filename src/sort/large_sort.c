@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 18:02:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 19:23:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	split_to_a(t_board *stack, t_quart *quart)
 	int size;
 
 	size = len(stack->b);
-
 	get_quartiles(stack->b, quart);
 	while (size-- > 0)
 	{
@@ -52,10 +51,10 @@ void	push_swap(t_board *stack, t_quart *quart)
 	if (len(stack->b) == 0)
 		return ;
 	split_to_a(stack, quart);
-	while (getlast(stack->a)->value == stack->a->value + 1
-			&& !is_sorted(stack->a))
-		pa(stack, 1);
+	while (stack->a->value <= quart->q3 && !is_sorted(stack->a))
+		ra(stack, 1);
 	push_swap(stack, quart);
+
 }
 
 void	sort_100_500(t_board *stack, t_quart *quart)
