@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 21:43:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 22:59:33 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,88 @@ int	indx(t_stack *stack, int value, int size)
 	free(array);
 }
 
+int	get_size(t_stack *stack, int max)
+{
+	int	i;
+
+	if (len(stack) == 0)
+		return (0);
+	i = 0;
+	while (stack->value <= max)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+// void	backtrack_split(t_board *stack, int max)
+// {
+// 	int avg;
+// 	int c;
+// 	int i;
+
+// 	c = 0;
+
+
+// 	avg = pw_get_avg_limit(a, limit);
+// 	while (ARRAY_DATA(a, a->size - 1) <= limit &&
+// 			ARRAY_DATA(a, a->size - 1) != 1)
+// 	{
+// 		if (ARRAY_DATA(a, a->size - 1) >= avg)
+// 		{
+// 			pw_rotate(a, b, "ra");
+// 			c++;
+// 		}
+// 		else
+// 			pw_push(b, a, "pb");
+// 	}
+// 	i = -1;
+// 	while (++i < c)
+// 		if (ARRAY_DATA(b, b->size - 1) != pw_get_max(b))
+// 			pw_rev_rotate_r(a, b, "rrr");
+// 		else
+// 			pw_rev_rotate(a, b, "rra");
+// 	if (pw_get_min(b) == ARRAY_DATA(a, 0) + 1 && c > 0)
+// 		ft_push_swap(a, b);
+// }
+
+void	backtrack(t_board *stack, t_quart *quart, int max)
+{
+	(void)quart;
+	while (stack->a->value <= max /* && indx(stack->a, stack->a->value, len(stack->a)) != 1 */ )
+	{
+			pb(stack, 1);
+		// if (indx(stack->a, stack->a->value, len(stack->a)) == indx(stack->a, getlast(stack->a)->value, len(stack->a)) + 1)
+		// 	ra(stack, 1);
+		// else
+	}
+	// if (smallest(stack->b) == getlast(stack->a)->value)
+	// 	push_swap(stack, quart);
+}
+
+int	largest_index(t_stack *stack)
+{
+	int	largest;
+
+	largest = stack->value;
+	while (stack)
+	{
+		if (stack->value > largest)
+			largest = stack->value;
+		stack = stack->next;
+	}
+	return (largest);
+}
+
 void	push_swap(t_board *stack, t_quart *quart)
 {
-	// int max;
+	int max;
 
-	// max = largest(stack->b);
+	(void)quart;
 	if (len(stack->b) == 0)
 		return ;
+	max = largest(stack->b);
 	split_to_a(stack, quart);
 	push_swap(stack, quart);
 	while ((indx(stack->a, stack->a->value, len(stack->a))
@@ -75,10 +150,15 @@ void	push_swap(t_board *stack, t_quart *quart)
 			|| indx(stack->a, getlast(stack->a)->value, len(stack->a)) == 1)
 			&& !is_sorted(stack->a))
 		ra(stack, 1);
+	// if (get_size(stack->a, max) >= 20)
+	// 	backtrack_split(stack, max);
+	// backtrack(stack, quart, max);
 }
 
 void	sort_100_500(t_board *stack, t_quart *quart)
 {
+	if (is_sorted(stack->a))
+		return ;
 	split_to_b(stack, quart);
 	push_swap(stack, quart);
 }

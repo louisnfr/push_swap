@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:48:08 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 23:02:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,5 @@ void	check_input(int ac, char **av, t_board *stack)
 		parse_string(stack, av);
 	else
 		parse_args(stack, av);
+	fill_indexes(stack);
 }
