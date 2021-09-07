@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 22:59:33 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:33:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,15 +139,15 @@ void	push_swap(t_board *stack, t_quart *quart)
 {
 	int max;
 
-	(void)quart;
+	(void)max;
 	if (len(stack->b) == 0)
 		return ;
 	max = largest(stack->b);
 	split_to_a(stack, quart);
 	push_swap(stack, quart);
-	while ((indx(stack->a, stack->a->value, len(stack->a))
-			== indx(stack->a, getlast(stack->a)->value, len(stack->a)) + 1
-			|| indx(stack->a, getlast(stack->a)->value, len(stack->a)) == 1)
+	while ((stack->a->index
+			== getlast(stack->a)->index + 1
+			|| getlast(stack->a)->index == 1)
 			&& !is_sorted(stack->a))
 		ra(stack, 1);
 	// if (get_size(stack->a, max) >= 20)

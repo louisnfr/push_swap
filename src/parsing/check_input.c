@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 23:06:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:33:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,29 @@ void	parse_string(t_board *stack, char **av)
 
 void	fill_indexes(t_stack *stack)
 {
+	t_stack *head;
 	int	*array;
 	int	size;
 	int	i;
 
+	head = stack;
 	size = len(stack);
-	array = malloc(sizeof(int) * len(stack));
+	array = malloc(sizeof(int) * size);
 	if (!array)
-		return (free(array));
+		return ;
 	get_array(stack, array);
-	sort_array(array, len(stack));
+	sort_array(array, size);
 	i = -1;
-	while (++i < )
+	while (++i < size)
+	{
+		while (stack)
+		{
+			if (stack->value == array[i])
+				stack->index = i + 1;
+			stack = stack->next;
+		}
+		stack = head;
+	}
 	free(array);
 }
 
