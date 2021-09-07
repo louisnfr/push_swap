@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 13:40:07 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:02:06 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,32 @@ void	prep_4_5(t_board *stack)
 		bring_a_push_b(stack, largest(stack->a));
 }
 
+void	pa_q2(t_board *stack, t_quart *quart)
+{
+	while (largest(stack->b) >= quart->q2)
+	{
+		if (stack->b->value >= quart->q2)
+			pa(stack, 1);
+		else if (stack->b->value == smallest(stack->b))
+		{
+			pa(stack, 1);
+			ra(stack, 1);
+		}
+		else if (closest_above_k(stack->b, quart->q2) == 1)
+			rb(stack, 1);
+		else
+			rrb(stack, 1);
+	}
+}
+
 void	pb_q2(t_board *stack, t_quart *quart)
 {
 	while (smallest(stack->a) <= quart->q2)
 	{
 		if (stack->a->value <= quart->q2)
 			pb(stack, 1);
-		else if (getlast(stack->a)->value == smallest(stack->a))
+		else if (getlast(stack->a)->value == smallest(stack->a)
+				&& last_below_k(stack->a, quart->q2))
 			return ;
 		else if (closest_below_k(stack->a, quart->q2) == 1)
 			ra(stack, 1);
@@ -66,10 +85,10 @@ void	sort_rest_a(t_board *stack)
 	}
 }
 
-void	ra_sorted_half_on_b(t_board *stack, t_quart *quart, int max)
+void	ra_sorted_half_on_b(t_board *stack, int quart, int max)
 {
-	while (stack->a->value <= quart->q2)
+	while (stack->a->value <= quart)
 		ra(stack, 1);
-	while (stack->a->value >= quart->q2 && stack->a->value <= max)
+	while (stack->a->value >= quart && stack->a->value <= max)
 		pb(stack, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 13:36:56 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:03:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ void	bring_b_push_a(t_board *stack, int x);
 void	bring_a_push_b(t_board *stack, int x);
 void	get_quartiles(t_stack *stack, t_quart *quart);
 int		closest_below_k(t_stack *stack, int k);
+int		last_below_k(t_stack *stack, int k);
+int		closest_above_k(t_stack *stack, int k);
+int		last_above_k(t_stack *stack, int k);
+
 
 /* actions */
 
@@ -113,9 +117,10 @@ void	large_sort(t_board *stack);
 
 /* sort utils */
 
+void	pa_q2(t_board *stack, t_quart *quart);
 void	pb_q2(t_board *stack, t_quart *quart);
 void	sort_rest_a(t_board *stack);
 void	half_on_a(t_board *stack, t_quart *quart);
-void	ra_sorted_half_on_b(t_board *stack, t_quart *quart, int max);
+void	ra_sorted_half_on_b(t_board *stack, int quart, int max);
 
 #endif

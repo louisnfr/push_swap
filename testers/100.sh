@@ -5,6 +5,7 @@ ITERATIONS=0
 LIMIT=700
 SUM=0
 
+(cd .. && make)
 for i in {1..100}
 do
 		export ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
