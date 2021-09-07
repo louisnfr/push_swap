@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:40:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 03:48:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	parse_args(t_board *stack, char **av)
 	i = 0;
 	while (av[++i])
 	{
+		if (empty_string(av[i]))
+			terminate(ERROR, stack);
 		count = 0;
 		j = 0;
 		if (!check_arg(av[i]))

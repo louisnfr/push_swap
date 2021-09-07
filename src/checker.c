@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 		free(action);
 	}
 	if (is_sorted(stack->a) && !stack->b)
-		write(1, "OK\n", 3);./
+		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 	free_all(stack);
