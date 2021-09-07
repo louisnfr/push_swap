@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 14:43:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:24:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int	main(int ac, char **av)
 	check_input(ac, av, stack);
 	if (is_sorted(stack->a))
 		free_all(stack);
-	if (stack->length <= 20)
-		small_sort(stack);
-	else if (stack->length <= 100)
-		medium_sort(stack);
-	else
-		large_sort(stack);
+	large_sort(stack);
+	// if (stack->length <= 20)
+	// 	small_sort(stack);
+	// else if (stack->length <= 100)
+	// 	medium_sort(stack);
+	// else
+	// 	large_sort(stack);
 	free_all(stack);
 	return (0);
 }

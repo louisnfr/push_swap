@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 15:02:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:30:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pb_q2(t_board *stack, t_quart *quart)
 		if (stack->a->value <= quart->q2)
 			pb(stack, 1);
 		else if (getlast(stack->a)->value == smallest(stack->a)
-				&& last_below_k(stack->a, quart->q2))
+			&& last_below_k(stack->a, quart->q2))
 			return ;
 		else if (closest_below_k(stack->a, quart->q2) == 1)
 			ra(stack, 1);

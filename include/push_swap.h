@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 15:03:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:30:54 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int		closest_below_k(t_stack *stack, int k);
 int		last_below_k(t_stack *stack, int k);
 int		closest_above_k(t_stack *stack, int k);
 int		last_above_k(t_stack *stack, int k);
-
 
 /* actions */
 
