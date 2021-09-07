@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:23:09 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:45:31 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:08:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 int	execute_read_action(t_board *stack, char *action)
 {
 	if (!ft_strcmp(action, "rb"))
-		rb(stack);
+		rb(stack, 0);
 	else if (!ft_strcmp(action, "rr"))
-		rr(stack);
+		rr(stack, 0);
 	else if (!ft_strcmp(action, "rra"))
-		rra(stack);
+		rra(stack, 0);
 	else if (!ft_strcmp(action, "rrb"))
-		rrb(stack);
+		rrb(stack, 0);
 	else if (!ft_strcmp(action, "rrr"))
-		rrr(stack);
+		rrr(stack, 0);
 	 else if (!ft_strcmp(action, "sa"))
-		sa(stack);
+		sa(stack, 0);
 	else if (!ft_strcmp(action, "sb"))
-		sb(stack);
+		sb(stack, 0);
 	else if (!ft_strcmp(action, "ss"))
-		ss(stack);
+		ss(stack, 0);
 	else if (!ft_strcmp(action, "pa") && !is_empty(stack->b))
-		pa(stack);
+		pa(stack, 0);
 	else if (!ft_strcmp(action, "pb") && !is_empty(stack->a))
-		pb(stack);
+		pb(stack, 0);
 	else if (!ft_strcmp(action, "ra"))
-		ra(stack);
+		ra(stack, 0);
 	else
 		terminate(ERROR, stack);
 	return (1);

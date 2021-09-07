@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 19:44:58 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:05:28 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ void	get_quartiles(t_stack *stack, t_quart *quart);
 
 /* actions */
 
-void	sa(t_board *stack);
-void	sb(t_board *stack);
-void	ss(t_board *stack);
-void	pa(t_board *stack);
-void	pb(t_board *stack);
-void	ra(t_board *stack);
-void	rb(t_board *stack);
-void	rr(t_board *stack);
-void	rra(t_board *stack);
-void	rrb(t_board *stack);
-void	rrr(t_board *stack);
+void	sa(t_board *stack, int print);
+void	sb(t_board *stack, int print);
+void	ss(t_board *stack, int print);
+void	pa(t_board *stack, int print);
+void	pb(t_board *stack, int print);
+void	ra(t_board *stack, int print);
+void	rb(t_board *stack, int print);
+void	rr(t_board *stack, int print);
+void	rra(t_board *stack, int print);
+void	rrb(t_board *stack, int print);
+void	rrr(t_board *stack, int print);
 
 /* sort */
 

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:37 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:29:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:06:30 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,27 @@ t_stack	*reverse_rotate(t_stack *stack)
 	return (stack);
 }
 
-void	rra(t_board *stack)
+void	rra(t_board *stack, int print)
 {
 	stack->a = reverse_rotate(stack->a);
-	write(1, "rra\n", 4);
+	if (print)
+		write(1, "rra\n", 4);
 	stack->moves++;
 }
 
-void	rrb(t_board *stack)
+void	rrb(t_board *stack, int print)
 {
 	stack->b = reverse_rotate(stack->b);
-	write(1, "rrb\n", 4);
+	if (print)
+		write(1, "rrb\n", 4);
 	stack->moves++;
 }
 
-void	rrr(t_board *stack)
+void	rrr(t_board *stack, int print)
 {
 	stack->a = reverse_rotate(stack->a);
 	stack->b = reverse_rotate(stack->b);
-	write(1, "rrr\n", 4);
+	if (print)
+		write(1, "rrr\n", 4);
 	stack->moves++;
 }

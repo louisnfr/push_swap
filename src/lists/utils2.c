@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:38:20 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:30:13 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:11:16 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	bring_on_top_a(t_board *stack, int x)
 		return ;
 	if (where_is(x, stack->a) == 1)
 		while (!is_on_top(stack->a, x))
-			ra(stack);
+			ra(stack, 1);
 	else
 		while (!is_on_top(stack->a, x))
-			rra(stack);
+			rra(stack, 1);
 }
 
 void	bring_on_top_b(t_board *stack, int x)
@@ -37,20 +37,20 @@ void	bring_on_top_b(t_board *stack, int x)
 		return ;
 	if (where_is(x, stack->b) == 1)
 		while (!is_on_top(stack->b, x))
-			rb(stack);
+			rb(stack, 1);
 	else
 		while (!is_on_top(stack->b, x))
-			rrb(stack);
+			rrb(stack, 1);
 }
 
 void	bring_b_push_a(t_board *stack, int x)
 {
 	bring_on_top_b(stack, x);
-	pa(stack);
+	pa(stack, 1);
 }
 
 void	bring_a_push_b(t_board *stack, int x)
 {
 	bring_on_top_a(stack, x);
-	pb(stack);
+	pb(stack, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:58 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:29:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:05:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,27 @@ t_stack	*swap(t_stack *stack)
 	return (stack);
 }
 
-void	sa(t_board *stack)
+void	sa(t_board *stack, int print)
 {
 	stack->a = swap(stack->a);
-	write(1, "sa\n", 3);
+	if (print)
+		write(1, "sa\n", 3);
 	stack->moves++;
 }
 
-void	sb(t_board *stack)
+void	sb(t_board *stack, int print)
 {
 	stack->b = swap(stack->b);
-	write(1, "sb\n", 3);
+	if (print)
+		write(1, "sb\n", 3);
 	stack->moves++;
 }
 
-void	ss(t_board *stack)
+void	ss(t_board *stack, int print)
 {
 	stack->a = swap(stack->a);
 	stack->b = swap(stack->b);
-	write(1, "ss\n", 3);
+	if (print)
+		write(1, "ss\n", 3);
 	stack->moves++;
 }

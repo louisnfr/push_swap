@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:56 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:29:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:07:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_board *stack)
+void	pa(t_board *stack, int print)
 {
 	t_stack	*tmp;
 
@@ -31,11 +31,12 @@ void	pa(t_board *stack)
 		tmp->next = NULL;
 		stack->a = tmp;
 	}
-	write(1, "pa\n", 3);
+	if (print)
+		write(1, "pa\n", 3);
 	stack->moves++;
 }
 
-void	pb(t_board *stack)
+void	pb(t_board *stack, int print)
 {
 	t_stack	*tmp;
 
@@ -54,6 +55,7 @@ void	pb(t_board *stack)
 		tmp->next = NULL;
 		stack->b = tmp;
 	}
-	write(1, "pb\n", 3);
+	if (print)
+		write(1, "pb\n", 3);
 	stack->moves++;
 }

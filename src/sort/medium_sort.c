@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 21:32:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:10:29 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	sort_10_100(t_board *stack, t_quart *quart)
 	ra_sorted_half_on_b(stack, quart, max);
 	sort_rest_a(stack);
 	while (stack->a->value >= quart->q2 && stack->a->value <= max)
-		ra(stack);
+		ra(stack, 1);
 	while (stack->a->value >= max)
-		pb(stack);
+		pb(stack, 1);
 	get_quartiles(stack->b, quart);
 	max = largest(stack->b);
 	half_on_a(stack, quart);
@@ -62,7 +62,7 @@ void	sort_10_100(t_board *stack, t_quart *quart)
 	ra_sorted_half_on_b(stack, quart, max);
 	sort_rest_a(stack);
 	while (stack->a->value >= quart->q2 && stack->a->value <= max)
-		ra(stack);
+		ra(stack, 1);
 }
 
 void	medium_sort(t_board *stack)

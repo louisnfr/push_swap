@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:31:03 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:09:04 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	pb_q2(t_board *stack, t_quart *quart)
 	while (smallest(stack->a) <= quart->q2)
 	{
 		if (stack->a->value <= quart->q2)
-			pb(stack);
+			pb(stack, 1);
 		else
-			ra(stack);
+			ra(stack, 1);
 	}
 }
 
@@ -36,13 +36,13 @@ void	half_on_a(t_board *stack, t_quart *quart)
 	{
 		if (stack->b->value == smallest(stack->b))
 		{
-			pa(stack);
-			ra(stack);
+			pa(stack, 1);
+			ra(stack, 1);
 		}
 		else if (stack->b->value >= quart->q2)
-			pa(stack);
+			pa(stack, 1);
 		else
-			rb(stack);
+			rb(stack, 1);
 	}
 }
 
@@ -52,20 +52,20 @@ void	sort_rest_a(t_board *stack)
 	{
 		if (stack->b->value == smallest(stack->b))
 		{
-			pa(stack);
-			ra(stack);
+			pa(stack, 1);
+			ra(stack, 1);
 		}
 		else if (stack->b->value == largest(stack->b))
-			pa(stack);
+			pa(stack, 1);
 		else
-			rb(stack);
+			rb(stack, 1);
 	}
 }
 
 void	ra_sorted_half_on_b(t_board *stack, t_quart *quart, int max)
 {
 	while (stack->a->value <= quart->q2)
-		ra(stack);
+		ra(stack, 1);
 	while (stack->a->value >= quart->q2 && stack->a->value <= max)
-		pb(stack);
+		pb(stack, 1);
 }

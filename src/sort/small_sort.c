@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:38:31 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/06 22:30:55 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:09:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_2(t_board *stack)
 	if (!stack)
 		terminate(ERROR, stack);
 	if (stack->a->value > stack->a->next->value)
-		sa(stack);
+		sa(stack, 1);
 }
 
 void	sort_3(t_board *stack)
@@ -32,20 +32,20 @@ void	sort_3(t_board *stack)
 	two = stack->a->next->value;
 	three = stack->a->next->next->value;
 	if (one > two && two < three && one < three)
-		sa(stack);
+		sa(stack, 1);
 	else if (one > two && two < three && one > two)
-		ra(stack);
+		ra(stack, 1);
 	else if (one < two && two > three && one > three)
-		rra(stack);
+		rra(stack, 1);
 	else if (one > two && two > three && one > three)
 	{
-		sa(stack);
-		rra(stack);
+		sa(stack, 1);
+		rra(stack, 1);
 	}
 	else if (one < two && two > three && one < three)
 	{
-		sa(stack);
-		ra(stack);
+		sa(stack, 1);
+		ra(stack, 1);
 	}
 }
 
@@ -58,10 +58,10 @@ void	sort_4_5(t_board *stack)
 	sort_3(stack);
 	if (s_len == 5)
 	{
-		pa(stack);
-		ra(stack);
+		pa(stack, 1);
+		ra(stack, 1);
 	}
-	pa(stack);
+	pa(stack, 1);
 	if (is_empty(stack->a))
 		terminate(ERROR, stack);
 }
@@ -81,16 +81,16 @@ void	sort_20(t_board *stack)
 	while (stack->b && !is_empty(stack->b))
 	{
 		bring_b_push_a(stack, smallest(stack->b));
-		ra(stack);
+		ra(stack, 1);
 	}
 	while (stack->a->value <= max)
-		ra(stack);
+		ra(stack, 1);
 	while (stack->a->value >= max)
-		pb(stack);
+		pb(stack, 1);
 	while (stack->b && !is_empty(stack->b))
 	{
 		bring_b_push_a(stack, smallest(stack->b));
-		ra(stack);
+		ra(stack, 1);
 	}
 	free(quart);
 }
