@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 23:02:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 23:06:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,23 @@ void	parse_string(t_board *stack, char **av)
 	free_split(args, count_args(args));
 }
 
+void	fill_indexes(t_stack *stack)
+{
+	int	*array;
+	int	size;
+	int	i;
+
+	size = len(stack);
+	array = malloc(sizeof(int) * len(stack));
+	if (!array)
+		return (free(array));
+	get_array(stack, array);
+	sort_array(array, len(stack));
+	i = -1;
+	while (++i < )
+	free(array);
+}
+
 void	check_input(int ac, char **av, t_board *stack)
 {
 	if (ac < 2)
@@ -101,5 +118,5 @@ void	check_input(int ac, char **av, t_board *stack)
 		parse_string(stack, av);
 	else
 		parse_args(stack, av);
-	fill_indexes(stack);
+	fill_indexes(stack->a);
 }
