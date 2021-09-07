@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:44:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 03:50:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	free_split(char **args, size_t size);
 /* parsing */
 
 void	check_input(int ac, char **av, t_board *stack);
-int	empty_string(char *av);
+int		empty_string(char *av);
 
 /* init */
 
