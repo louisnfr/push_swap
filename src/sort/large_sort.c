@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 18:00:24 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 18:02:55 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	push_swap(t_board *stack, t_quart *quart)
 	if (len(stack->b) == 0)
 		return ;
 	split_to_a(stack, quart);
-	while ((ARRAY_DATA(a, a->size - 1) == ARRAY_DATA(a, 0) + 1 ||
-		ARRAY_DATA(a, a->size - 1) == 1) && !is_sorted(stack->a))
+	while (getlast(stack->a)->value == stack->a->value + 1
+			&& !is_sorted(stack->a))
 		pa(stack, 1);
 	push_swap(stack, quart);
 }
