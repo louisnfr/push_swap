@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 20:29:59 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:59:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 04:04:24 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,21 +75,3 @@ void	medium_sort(t_board *stack)
 	sort_10_100(stack, quart);
 	free(quart);
 }
-
-/*
-divise le bloc en deux pb_q2()
-calcul quartiles de B
-plus grande moitie sur pa
-on tri le reste en remettant sur a
-on envoie la partie triee en bas
-on recupere sur b la plus grande moitie
-on tri le reste en remettant sur a
-envoie la partie triee en bas
-on envoie le deuxieme bloc
-plus grande moitie sur pa
-on tri le reste en remettant sur a
-on envoie la partie triee en bas
-on recupere sur b la plus grande moitie
-on tri le reste en remettant sur a
-envoie la partie triee en bas
- */
