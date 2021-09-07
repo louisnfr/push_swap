@@ -6,13 +6,13 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:23:09 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 02:08:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 02:22:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	execute_read_action(t_board *stack, char *action)
+int	execute_action(t_board *stack, char *action)
 {
 	if (!ft_strcmp(action, "rb"))
 		rb(stack, 0);
@@ -50,10 +50,10 @@ int	main(int ac, char **av)
 	check_input(ac, av, stack);
 	while (get_next_line(0, &action))
 	{
-		execute_read_action(stack, action);
+		execute_action(stack, action);
 		free(action);
 	}
-	if (is_sorted(stack->a) && is_empty(stack->b))
+	if (is_sorted(stack->a) && !stack->b)
 	{
 		write(1, "OK\n", 3);
 		free_all(stack);
@@ -63,6 +63,6 @@ int	main(int ac, char **av)
 		write(1, "KO\n", 3);
 		terminate(ERROR, stack);
 	}
-	terminate(ERROR, stack);
+	free_all(stack);
 	return (0);
 }

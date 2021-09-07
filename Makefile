@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/07 02:13:25 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/07 02:19:18 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,18 +79,16 @@ WHITE       = \033[1;37m
 
 ### RULES ###
 
-all: $(NAME)
-
-bonus: $(CHECKER)
+all: $(NAME) $(CHECKER)
 
 $(NAME): $(OBJ)
-	@echo "$(YELLOW)libft...$(NOC)"
+	@echo "$(YELLOW)libft..$(NOC)"
 	@make -sC $(LIBFT_PATH)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
 
 $(CHECKER): $(OBJ_CH)
-	@echo "$(YELLOW)libft...$(NOC)"
+	@echo "$(YELLOW)libft..$(NOC)"
 	@make -sC $(LIBFT_PATH)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
