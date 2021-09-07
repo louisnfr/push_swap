@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 19:23:28 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 19:24:01 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	push_swap(t_board *stack, t_quart *quart)
 	if (len(stack->b) == 0)
 		return ;
 	split_to_a(stack, quart);
+	push_swap(stack, quart);
 	while (stack->a->value <= quart->q3 && !is_sorted(stack->a))
 		ra(stack, 1);
-	push_swap(stack, quart);
 
 }
 
