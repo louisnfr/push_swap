@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:50:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:36:56 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	bring_on_top_b(t_board *stack, int x);
 void	bring_b_push_a(t_board *stack, int x);
 void	bring_a_push_b(t_board *stack, int x);
 void	get_quartiles(t_stack *stack, t_quart *quart);
+int		closest_below_k(t_stack *stack, int k);
 
 /* actions */
 

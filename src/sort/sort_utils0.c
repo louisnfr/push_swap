@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils0.c                                           :+:      :+:    :+:   */
+/*   sort_utils0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 02:09:04 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 13:40:07 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ void	pb_q2(t_board *stack, t_quart *quart)
 	{
 		if (stack->a->value <= quart->q2)
 			pb(stack, 1);
-		else
+		else if (getlast(stack->a)->value == smallest(stack->a))
+			return ;
+		else if (closest_below_k(stack->a, quart->q2) == 1)
 			ra(stack, 1);
+		else
+			rra(stack, 1);
 	}
 }
 
