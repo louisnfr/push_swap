@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:23:09 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 03:33:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 03:46:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 		free(action);
 	}
 	if (is_sorted(stack->a) && !stack->b)
-		write(1, "OK\n", 3);
+		write(1, "OK\n", 3);./
 	else
 		write(1, "KO\n", 3);
 	free_all(stack);

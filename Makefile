@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/07 02:19:18 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/07 03:43:37 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ OBJ_PATH  = obj
 SOURCES = main.c \
 		init/init.c \
 		parsing/check_input.c \
+		parsing/parse_utils.c \
 		actions/push.c \
 		actions/swap.c \
 		actions/rotate.c \
@@ -35,10 +36,10 @@ SOURCES = main.c \
 		sort/medium_sort.c \
 		sort/large_sort.c \
 		sort/array.c \
-		sort/utils0.c \
-		lists/utils0.c \
-		lists/utils1.c \
-		lists/utils2.c \
+		sort/sort_utils0.c \
+		lists/lists_utils0.c \
+		lists/lists_utils1.c \
+		lists/lists_utils2.c \
 		lists/print.c \
 		exit/terminate.c \
 		exit/free.c
@@ -46,6 +47,7 @@ SOURCES = main.c \
 SOURCES_CH = checker.c \
 		init/init.c \
 		parsing/check_input.c \
+		parsing/parse_utils.c \
 		actions/push.c \
 		actions/swap.c \
 		actions/rotate.c \
@@ -54,10 +56,10 @@ SOURCES_CH = checker.c \
 		sort/medium_sort.c \
 		sort/large_sort.c \
 		sort/array.c \
-		sort/utils0.c \
-		lists/utils0.c \
-		lists/utils1.c \
-		lists/utils2.c \
+		sort/sort_utils0.c \
+		lists/lists_utils0.c \
+		lists/lists_utils1.c \
+		lists/lists_utils2.c \
 		lists/print.c \
 		exit/terminate.c \
 		exit/free.c
