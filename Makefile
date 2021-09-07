@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/07 01:58:03 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/07 02:03:06 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,17 +79,19 @@ WHITE       = \033[1;37m
 
 ### RULES ###
 
-all: $(NAME) $(CHECKER)
+all: $(NAME)
 
-$(LIBFT):
+bonus: $(CHECKER)
+
+$(NAME): $(OBJ)
 	@echo "$(YELLOW)libft...$(NOC)"
 	@make -sC $(LIBFT_PATH)
-
-$(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
 
-$(CHECKER): $(LIBFT) $(OBJ_CH)
+$(CHECKER): $(OBJ_CH)
+	@echo "$(YELLOW)libft...$(NOC)"
+	@make -sC $(LIBFT_PATH)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
 
@@ -120,7 +122,7 @@ push:
 	git commit -m push_swap
 	git push
 
-.PHONY:	all, clean, fclean, re, checker, norm, push
+.PHONY:	all, clean, fclean, re, checker, norm, push, bonus
 
 
 
