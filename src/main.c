@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:46:17 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 04:02:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 04:06:43 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char **av)
 
 	stack = init_board();
 	check_input(ac, av, stack);
-	// print_board(stack);
 	if (is_sorted(stack->a))
 		free_all(stack);
 	if (stack->length <= 20)
