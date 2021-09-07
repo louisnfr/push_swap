@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 17:30:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 21:43:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ void	pb_q2(t_board *stack, t_quart *quart);
 void	sort_rest_a(t_board *stack);
 void	half_on_a(t_board *stack, t_quart *quart);
 void	ra_sorted_half_on_b(t_board *stack, int quart, int max);
+int		indx(t_stack *stack, int value, int size);
 
 #endif
