@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    benchmark.sh                                       :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vbrazhni <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/08/29 17:15:18 by vbrazhni          #+#    #+#              #
-#    Updated: 2018/08/29 17:15:19 by vbrazhni         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 #!/bin/bash
 
 MAX=0
@@ -20,13 +8,13 @@ SUM=0
 for i in {1..100}
 do
 		export ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
-		if ./push_swap $ARG | ./checker $ARG | grep -q KO
+		if ../push_swap $ARG | ../checker $ARG | grep -q KO
 		then
 			echo "Error!"
 			echo $ARG
 			break
 		fi
-		NUMBER="$(./push_swap $ARG | wc -l | sed 's/ //g')"
+		NUMBER="$(../push_swap $ARG | wc -l | sed 's/ //g')"
 		if [ "$NUMBER" -gt "$MAX" ]
 			then
 			MAX=$NUMBER;
