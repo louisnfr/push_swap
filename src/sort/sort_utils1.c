@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:37:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/07 17:06:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:49:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,4 @@ int	last_above_k(t_stack *stack, int k)
 	if (i == 1)
 		return (1);
 	return (0);
-}
-
-int	get_avg(t_stack *stack)
-{
-	return (len(stack) / 2 + 0.5);
 }
