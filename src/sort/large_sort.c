@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 03:44:01 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 12:43:49 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,51 @@
 
 int	get_avg(t_stack *stack)
 {
-	int		i;
 	float	total;
+	int		size;
+	int		i;
 
 	if (len(stack) == 0)
 		return (0);
-	i = 0;
 	total = 0;
+	size = len(stack);
+	i = 0;
 	while (stack)
 	{
-		total += ft_abs(stack->value);
+		total += (stack->index);
 		stack = stack->next;
 		i++;
-		printf("t: %f\ni: %d\n", total, i);
+		// printf("t: %f\ni: %d\n", total, i);
 	}
-	return (0);
+	return ((int)(total / (int)size + 0.5));
 }
 
 void	split_to_b(t_board *stack, t_quart *quart)
 {
 	(void)quart;
+
+	int avg;
+	int size;
+	int i;
+
+	avg = get_avg(stack->a);
+	i = 0;
+	size = len(stack->a);
+	(void)size;
+	(void)avg;
+	(void)i;
+
+	while (size-- > 0)
+	{
+		printf("%d (index) < %d (avg)\n", stack->a->index, avg);
+		if (stack->a->index < avg)
+			pb(stack, 1);
+		else
+			ra(stack, 1);
+		i++;
+	}
 	// get_quartiles(stack->a, quart);
-	printf("avg: %d\n", get_avg(stack->a));
-	pb_q2(stack, quart);
+	// pb_q2(stack, quart);
 }
 
 
@@ -218,9 +240,7 @@ void	sort_100_500(t_board *stack, t_quart *quart)
 {
 	if (is_sorted(stack->a))
 		return ;
-	printf("size a: %d\n", len(stack->a));
 	split_to_b(stack, quart);
-		printf("size: %d\n", len(stack->b));
 
 	// push_swap(stack, quart);
 }
