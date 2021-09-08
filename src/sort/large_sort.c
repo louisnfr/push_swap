@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 03:02:16 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 03:07:02 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,6 @@ void	split_to_b(t_board *stack, t_quart *quart)
 {
 	get_quartiles(stack->a, quart);
 	pb_q2(stack, quart);
-}
-
-void	smart_rotate(t_board *stack)
-{
-	int i;
-
-	i = 0;
-	while (stack->a)
-	{
-		if (stack->a->value == largest(stack->a))
-			break ;
-		stack->a = stack->a->next;
-		i++;
-	}
-	if (i <= len(stack->a) / 2)
-		rrb(stack, 1);
-	else
-		rb(stack, 1);
 }
 
 
@@ -55,7 +37,6 @@ void	get_max_to_a(t_board *stack)
 			else
 				rrb(stack, 1);
 		}
-			// smart_rotate(stack);
 	}
 }
 
