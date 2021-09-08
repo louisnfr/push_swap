@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:00:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 12:40:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 15:48:48 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	print_stack_index(t_stack *stack, char *name)
 {
 	ft_putstr(name);
 	ft_putstr("(id): ");
-	ft_putstr(": ");
 	while (stack)
 	{
 		ft_putnbr(stack->index);

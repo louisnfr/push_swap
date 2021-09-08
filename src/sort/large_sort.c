@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 14:08:23 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 17:27:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,33 @@ void	split_to_b(t_board *stack, t_quart *quart)
 	}
 }
 
+void	smart_rotate(t_board *stack)
+{
+	t_stack *head;
+	int i;
+	int size;
+
+	head = stack->a;
+	size = len(stack->a);
+	i = 0;
+	while (i < size)
+	{
+		if (stack->a->index == largest_index(stack->a))
+			break ;
+		stack->a = stack->a->next;
+		i++;
+	}
+	stack->a = head;
+	if (i <= (int)size / 2)
+		rrb(stack, 1);
+	else
+		rb(stack, 1);
+}
+
 
 void	get_max_to_a(t_board *stack)
 {
-	if (stack->b->value == largest(stack->b))
+	if (stack->b->index == largest_index(stack->b))
 		pa(stack, 1);
 	else
 	{
@@ -64,12 +87,7 @@ void	get_max_to_a(t_board *stack)
 			ra(stack, 1);
 		}
 		else
-		{
-			if (where_is(smallest(stack->b), stack->b) == 1)
-				rb(stack, 1);
-			else
-				rrb(stack, 1);
-		}
+			smart_rotate(stack);
 	}
 }
 
@@ -78,7 +96,9 @@ void	split_to_a(t_board *stack, int avg, int size)
 	while (size-- > 0)
 	{
 		if (len(stack->b) < 13)
+		{
 			get_max_to_a(stack);
+		}
 		else
 		{
 			if (stack->b->index >= avg)
@@ -200,7 +220,7 @@ void	push_swap(t_board *stack)
 		return ;
 	max = largest_index(stack->b);
 	split_to_a(stack, get_avg(stack->b), len(stack->b));
-	// push_swap(stack);
+	push_swap(stack);
 	// while ((stack->a->index
 	// 		== getlast(stack->a)->index + 1
 	// 		|| getlast(stack->a)->index == 1)
