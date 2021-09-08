@@ -6,15 +6,39 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 03:07:02 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 03:32:31 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	get_avg(t_stack *stack)
+{
+	int		i;
+	float	total;
+
+	if (len(stack) == 0)
+		return (0);
+	i = 0;
+	total = 0;
+	while (stack)
+	{
+		total += stack->index;
+		stack = stack->next;
+		i++;
+	}
+	return (len(stack) / 2 + 0.5);
+}
+
 void	split_to_b(t_board *stack, t_quart *quart)
 {
-	get_quartiles(stack->a, quart);
+	(void)quart;
+	// get_quartiles(stack->a, quart);
+	// int avg;
+
+	// avg = get_avg(stack->a);
+
+	// printf("q2: %d\n", quart->q2);
 	pb_q2(stack, quart);
 }
 
@@ -197,7 +221,10 @@ void	sort_100_500(t_board *stack, t_quart *quart)
 {
 	if (is_sorted(stack->a))
 		return ;
+	// printf("size a: %d\n", len(stack->a));
 	split_to_b(stack, quart);
+		// printf("size: %d\n", len(stack->b));
+
 	push_swap(stack, quart);
 }
 
