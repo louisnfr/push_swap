@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 02:12:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 02:36:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,42 @@ void	split_to_b(t_board *stack, t_quart *quart)
 	pb_q2(stack, quart);
 }
 
-void	split_to_a(t_board *stack, t_quart *quart)
+void	split_to_a(t_board *stack, t_quart *quart, int size)
 {
-	int size;
-
-	size = len(stack->b);
 	get_quartiles(stack->b, quart);
 	while (size-- > 0)
 	{
 		if (len(stack->b) < 13)
 			bring_b_push_a(stack, largest(stack->b));
+
 		else
 		{
-			if (stack->b->value == smallest(stack->b))
-			{
-				pa(stack, 1);
-				ra(stack, 1);
-			}
-			else if (stack->b->value >= quart->q2)
+			if (stack->b->value >= quart->q2)
 				pa(stack, 1);
 			else
-				rb(stack, 1);
+			{
+				if (stack->a->index + 1 == stack->b->index || stack->b->index == 1)
+				{
+					pa(stack, 1);
+					ra(stack, 1);
+				}
+				else
+					rb(stack, 1);
+			}
 		}
+
+		// else
+		// {
+		// 	if (stack->b->value == smallest(stack->b))
+		// 	{
+		// 		pa(stack, 1);
+		// 		ra(stack, 1);
+		// 	}
+		// 	else if (stack->b->value >= quart->q2)
+		// 		pa(stack, 1);
+		// 	else
+		// 		rb(stack, 1);
+		// }
 	}
 }
 
@@ -117,9 +131,10 @@ void	backtrack(t_board *stack, t_quart *quart, int max)
 		else
 			pb(stack, 1);
 	}
-	// if ((indx(stack->b, smallest(stack->b), len(stack->b))
-	// 	== indx(stack->a, stack->a->value, len(stack->a)) + 1)
-		// push_swap(stack, quart);
+	printf("min: %d\ndata: %d\n", indx(stack->b, smallest(stack->b), len(stack->b)), stack->a->index + 1);
+	// if (indx(stack->b, smallest(stack->b), len(stack->b))
+	// 	== stack->a->index + 1)
+	// 	push_swap(stack, quart);
 }
 
 int	largest_index(t_stack *stack)
@@ -141,11 +156,12 @@ void	push_swap(t_board *stack, t_quart *quart)
 	int max;
 
 	(void)max;
+	printf("size: %d\n", len(stack->b));
 	if (len(stack->b) == 0)
 		return ;
 	max = indx(stack->b, largest(stack->b), len(stack->b));
 	// printf("MAX: %d\n", max);
-	split_to_a(stack, quart);
+	split_to_a(stack, quart, len(stack->b));
 	push_swap(stack, quart);
 	while ((stack->a->index
 			== getlast(stack->a)->index + 1
