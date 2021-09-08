@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 12:37:11 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 13:45:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	ra_sorted_half_on_b(t_board *stack, int quart, int max);
 int		indx(t_stack *stack, int value, int size);
 
 /* wip */
-void	push_swap(t_board *stack, t_quart *quart);
+void	push_swap(t_board *stack);
 void	backtrack(t_board *stack, t_quart *quart, int max);
 
 
