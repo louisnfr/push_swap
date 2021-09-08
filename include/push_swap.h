@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 18:07:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 19:04:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int		indx(t_stack *stack, int value, int size);
 void	push_swap(t_board *stack);
 void	backtrack(t_board *stack, int max);
 int		largest_index(t_stack *stack);
+int	smallest_index(t_stack *stack);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 18:54:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 19:20:34 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	get_avg(t_stack *stack)
 {
+	t_stack *head;
 	float	total;
 	int		size;
 	int		i;
 
 	if (len(stack) == 0)
 		return (0);
+	head = stack;
 	total = 0;
 	size = len(stack);
 	i = 0;
@@ -28,8 +30,8 @@ int	get_avg(t_stack *stack)
 		total += (stack->index);
 		stack = stack->next;
 		i++;
-		// printf("t: %f\ni: %d\n", total, i);
 	}
+	stack = head;
 	return ((int)(total / (int)size + 0.5));
 }
 
@@ -139,8 +141,10 @@ int	indx(t_stack *stack, int value, int size)
 
 int	get_size(t_stack *stack, int max)
 {
+	t_stack *head;
 	int	i;
 
+	head = stack;
 	if (len(stack) == 0)
 		return (0);
 	i = 0;
@@ -149,6 +153,7 @@ int	get_size(t_stack *stack, int max)
 		i++;
 		stack = stack->next;
 	}
+	stack = head;
 	return (i);
 }
 
@@ -185,25 +190,25 @@ int	get_size(t_stack *stack, int max)
 
 void	backtrack(t_board *stack, int max)
 {
-	printf("while(%d <= %d && %d != 1)\n", stack->a->index,
-										max,  stack->a->index);
-	// while (stack->a->index <= max && getlast(stack->a)->index != 1)
-	// {
-	// 	if (indx(stack->a, stack->a->value, len(stack->a)) + 1 == getlast(stack->a)->index)
-	// 		ra(stack, 1);
-	// 	else
-	// 		pb(stack, 1);
-	// }
-	// if (indx(stack->b, smallest(stack->b), len(stack->b))
-	// 	== stack->a->index + 1)
+	// printf("while(%d <= %d && %d != 1)\n", stack->a->index,
+	// 									max,  stack->a->index);
+	while (stack->a->index <= max && stack->a->index != 1)
+	{
+		if (getlast(stack->a)->index + 1 == stack->a->index)
+			ra(stack, 1);
+		else
+			pb(stack, 1);
+	}
+	// if (smallest_index(stack->a) == getlast(stack->a)->index + 1)
 	// 	push_swap(stack);
-	// printf("min: %d\ndata: %d\n", indx(stack->b, smallest(stack->b), len(stack->b)), stack->a->index + 1);
 }
 
 int	largest_index(t_stack *stack)
 {
+	t_stack *head;
 	int	largest;
 
+	head = stack;
 	largest = stack->index;
 	while (stack)
 	{
@@ -211,7 +216,25 @@ int	largest_index(t_stack *stack)
 			largest = stack->index;
 		stack = stack->next;
 	}
+	stack = head;
 	return (largest);
+}
+
+int	smallest_index(t_stack *stack)
+{
+	t_stack *head;
+	int	smallest;
+
+	head = stack;
+	smallest = stack->index;
+	while (stack)
+	{
+		if (stack->index < smallest)
+			smallest = stack->index;
+		stack = stack->next;
+	}
+	return (smallest);
+	stack = head;
 }
 
 void	push_swap(t_board *stack)
@@ -222,18 +245,19 @@ void	push_swap(t_board *stack)
 	if (len(stack->b) == 0)
 		return ;
 	max = largest_index(stack->b);
+	printf("max: %d\n", max);
 	split_to_a(stack, get_avg(stack->b), len(stack->b));
-	push_swap(stack);
-	// printf("while %d == %d || %d == 1", stack->a->index, getlast(stack->a)->index + 1, stack->a->index);
+	// printf("while %d == %d || %d == 1\n", stack->a->index, getlast(stack->a)->index + 1, stack->a->index);
 	while ((stack->a->index
 			== getlast(stack->a)->index + 1
 			|| stack->a->index == 1)
 			&& !is_sorted(stack->a))
 		ra(stack, 1);
+	push_swap(stack);
 	// printf("max: %d\n", max);
 	// if (get_size(stack->a, max) >= 20)
 	// 	backtrack_split(stack, max);
-	// backtrack(stack, max);
+	backtrack(stack, max);
 }
 
 void	sort_100_500(t_board *stack, t_quart *quart)
