@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 15:00:03 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 15:48:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/08 19:26:44 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ void	print_stack_index(t_stack *stack, char *name)
 
 void	print_board_index(t_board *stack)
 {
-	ft_putstr("\n---\n");
 	print_stack_index(stack->a, "a");
-	ft_putstr("---\n");
 	print_stack_index(stack->b, "b");
-	ft_putstr("---\n\n");
 }
