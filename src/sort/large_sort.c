@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 02:59:32 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 03:11:17 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,22 @@ void	smart_rotate(t_board *stack)
 	head = stack->b;
 	size = len(stack->b);
 	i = 0;
-	print_board_index(stack);
+	// print_board_index(stack);
 	stack->b = getlast(stack->b);
-	printf("size: %d\n", size);
+	// printf("size: %d\n", size);
 	while (i < size)
 	{
 		// printf("%d < %d\n", i, size);
-		printf("-----%d == %d\n", stack->b->index, largest_index(stack->b));
+		// printf("-----%d == %d\n", stack->b->index, largest_index(stack->b));
 		if (stack->b->index == largest_index(stack->b))
 		{
-			printf("break (%d == %d)\n", stack->b->index, largest_index(stack->b));
+			// printf("break (%d == %d)\n", stack->b->index, largest_index(stack->b));
 			break ;
 		}
 		stack->b = stack->b->previous;
 		i++;
 	}
-	printf("%d <= %d\n", i, (int)(size / 2));
+	// printf("%d <= %d\n", i, (int)(size / 2));
 	stack->b = head;
 	if (i <= (int)(size / 2))
 		rrb(stack, 1);
@@ -209,7 +209,8 @@ void	backtrack(t_board *stack, int max)
 		else
 			pb(stack, 1);
 	}
-	// if (smallest_index(stack->a) == getlast(stack->a)->index + 1)
+	print_board_index(stack);
+	// if (smallest_index(stack->b) == getlast(stack->a)->index + 1)
 	// 	push_swap(stack);
 }
 
@@ -259,16 +260,16 @@ void	push_swap(t_board *stack)
 	split_to_a(stack, get_avg(stack->b), len(stack->b));
 	// print_board_index(stack);
 	// printf("while %d == %d || %d == 1\n", stack->a->index, getlast(stack->a)->index + 1, stack->a->index);
-	// while ((stack->a->index
-	// 		== getlast(stack->a)->index + 1
-	// 		|| stack->a->index == 1)
-	// 		&& !is_sorted(stack->a))
-	// 	ra(stack, 1);
+	while ((stack->a->index
+			== getlast(stack->a)->index + 1
+			|| stack->a->index == 1)
+			&& !is_sorted(stack->a))
+		ra(stack, 1);
 	push_swap(stack);
 	// printf("max: %d\n", max);
 	// if (get_size(stack->a, max) >= 20)
 	// 	backtrack_split(stack, max);
-	// backtrack(stack, max);
+	backtrack(stack, max);
 }
 
 void	sort_100_500(t_board *stack, t_quart *quart)
