@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 03:33:52 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 03:36:39 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,41 +167,39 @@ int	get_size(t_stack *stack, int max)
 	return (i);
 }
 
-// void	backtrack_split(t_board *stack, int max)
-// {
-// 	int avg;
-// 	int c;
-// 	int i;
+void	backtrack_split(t_board *stack, int max)
+{
+	int avg;
+	int c;
+	int i;
 
-// 	c = 0;
+	c = 0;
 
 
-// 	avg = pw_get_avg_limit(a, limit);
-// 	while (ARRAY_DATA(a, a->size - 1) <= limit &&
-// 			ARRAY_DATA(a, a->size - 1) != 1)
-// 	{
-// 		if (ARRAY_DATA(a, a->size - 1) >= avg)
-// 		{
-// 			pw_rotate(a, b, "ra");
-// 			c++;
-// 		}
-// 		else
-// 			pw_push(b, a, "pb");
-// 	}
-// 	i = -1;
-// 	while (++i < c)
-// 		if (ARRAY_DATA(b, b->size - 1) != pw_get_max(b))
-// 			pw_rev_rotate_r(a, b, "rrr");
-// 		else
-// 			pw_rev_rotate(a, b, "rra");
-// 	if (pw_get_min(b) == ARRAY_DATA(a, 0) + 1 && c > 0)
-// 		ft_push_swap(a, b);
-// }
+	avg = pw_get_avg_limit(a, limit);
+	while (ARRAY_DATA(a, a->size - 1) <= limit &&
+			ARRAY_DATA(a, a->size - 1) != 1)
+	{
+		if (ARRAY_DATA(a, a->size - 1) >= avg)
+		{
+			pw_rotate(a, b, "ra");
+			c++;
+		}
+		else
+			pw_push(b, a, "pb");
+	}
+	i = -1;
+	while (++i < c)
+		if (ARRAY_DATA(b, b->size - 1) != pw_get_max(b))
+			pw_rev_rotate_r(a, b, "rrr");
+		else
+			pw_rev_rotate(a, b, "rra");
+	if (pw_get_min(b) == ARRAY_DATA(a, 0) + 1 && c > 0)
+		ft_push_swap(a, b);
+}
 
 void	backtrack(t_board *stack, int max)
 {
-	// printf("while(%d <= %d && %d != 1)\n", stack->a->index,
-	// 									max,  stack->a->index);
 	while (stack->a->index <= max && stack->a->index != 1)
 	{
 		if (getlast(stack->a)->index + 1 == stack->a->index)
@@ -209,8 +207,6 @@ void	backtrack(t_board *stack, int max)
 		else
 			pb(stack, 1);
 	}
-	// smallest_index(stack->b); //crash
-	// printf("%d == %d\n", smallest_index(stack->b), getlast(stack->a)->index + 1);
 	if (smallest_index(stack->b) == getlast(stack->a)->index + 1)
 		push_swap(stack);
 }
@@ -265,10 +261,8 @@ void	push_swap(t_board *stack)
 			&& !is_sorted(stack->a))
 		ra(stack, 1);
 	push_swap(stack);
-	// printf("max: %d\n", max);
-	// if (get_size(stack->a, max) >= 20)
-	// 	backtrack_split(stack, max);
-	// printf("test: %d\n", stack->b->index); //segfault
+	if (get_size(stack->a, max) >= 20)
+		backtrack_split(stack, max);
 	backtrack(stack, max);
 }
 
