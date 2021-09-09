@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 03:11:17 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 03:33:52 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,17 +209,18 @@ void	backtrack(t_board *stack, int max)
 		else
 			pb(stack, 1);
 	}
-	print_board_index(stack);
-	// if (smallest_index(stack->b) == getlast(stack->a)->index + 1)
-	// 	push_swap(stack);
+	// smallest_index(stack->b); //crash
+	// printf("%d == %d\n", smallest_index(stack->b), getlast(stack->a)->index + 1);
+	if (smallest_index(stack->b) == getlast(stack->a)->index + 1)
+		push_swap(stack);
 }
 
 int	largest_index(t_stack *stack)
 {
-	t_stack *head;
 	int	largest;
 
-	head = stack;
+	if (len(stack) == 0)
+		return (0);
 	largest = stack->index;
 	while (stack)
 	{
@@ -227,16 +228,15 @@ int	largest_index(t_stack *stack)
 			largest = stack->index;
 		stack = stack->next;
 	}
-	stack = head;
 	return (largest);
 }
 
 int	smallest_index(t_stack *stack)
 {
-	t_stack *head;
 	int	smallest;
 
-	head = stack;
+	if (len(stack) == 0)
+		return (0);
 	smallest = stack->index;
 	while (stack)
 	{
@@ -245,7 +245,6 @@ int	smallest_index(t_stack *stack)
 		stack = stack->next;
 	}
 	return (smallest);
-	stack = head;
 }
 
 void	push_swap(t_board *stack)
@@ -269,6 +268,7 @@ void	push_swap(t_board *stack)
 	// printf("max: %d\n", max);
 	// if (get_size(stack->a, max) >= 20)
 	// 	backtrack_split(stack, max);
+	// printf("test: %d\n", stack->b->index); //segfault
 	backtrack(stack, max);
 }
 
