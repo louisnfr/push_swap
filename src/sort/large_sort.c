@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 03:36:39 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 04:12:26 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	get_avg(t_stack *stack)
 {
-	t_stack *head;
+	// t_stack *head;
 	float	total;
 	int		size;
 	int		i;
 
 	if (len(stack) == 0)
 		return (0);
-	head = stack;
+	// head = stack;
 	total = 0;
 	size = len(stack);
 	i = 0;
@@ -31,7 +31,7 @@ int	get_avg(t_stack *stack)
 		stack = stack->next;
 		i++;
 	}
-	stack = head;
+	// stack = head;
 	return ((int)(total / (int)size + 0.5));
 }
 
@@ -151,20 +151,36 @@ int	indx(t_stack *stack, int value, int size)
 
 int	get_size(t_stack *stack, int max)
 {
-	t_stack *head;
 	int	i;
 
-	head = stack;
 	if (len(stack) == 0)
 		return (0);
 	i = 0;
-	while (stack->value <= max)
+	while (stack->index <= max && stack->index != 1)
 	{
 		i++;
 		stack = stack->next;
 	}
-	stack = head;
 	return (i);
+}
+
+int	get_avg_limit(t_stack *stack, int max)
+{
+	float	total;
+	int		i;
+
+	if (len(stack) == 0)
+		return (0);
+	total = 0;
+	i = 0;
+	while (stack->index <= max
+		&& stack->index != 1)
+	{
+		total += stack->index;
+		stack = stack->next;
+		i++;
+	}
+	return ((int)(total / i + 0.5));
 }
 
 void	backtrack_split(t_board *stack, int max)
@@ -174,28 +190,30 @@ void	backtrack_split(t_board *stack, int max)
 	int i;
 
 	c = 0;
-
-
-	avg = pw_get_avg_limit(a, limit);
-	while (ARRAY_DATA(a, a->size - 1) <= limit &&
-			ARRAY_DATA(a, a->size - 1) != 1)
+	avg = get_avg_limit(stack->a, max);
+	(void)avg;
+	(void)c;
+	(void)i;
+	while (stack->a->index <= max && stack->a->index != 1)
 	{
-		if (ARRAY_DATA(a, a->size - 1) >= avg)
+		if (stack->a->index >= avg)
 		{
-			pw_rotate(a, b, "ra");
+			ra(stack, 1);
 			c++;
 		}
 		else
-			pw_push(b, a, "pb");
+			pb(stack, 1);
 	}
 	i = -1;
 	while (++i < c)
-		if (ARRAY_DATA(b, b->size - 1) != pw_get_max(b))
-			pw_rev_rotate_r(a, b, "rrr");
+	{
+		if (stack->b->index != largest_index(stack->b))
+			rrr(stack, 1);
 		else
-			pw_rev_rotate(a, b, "rra");
-	if (pw_get_min(b) == ARRAY_DATA(a, 0) + 1 && c > 0)
-		ft_push_swap(a, b);
+			rra(stack, 1);
+	}
+	if (smallest_index(stack->b) == getlast(stack->a)->index + 1 && c > 0)
+		push_swap(stack);
 }
 
 void	backtrack(t_board *stack, int max)
@@ -261,8 +279,12 @@ void	push_swap(t_board *stack)
 			&& !is_sorted(stack->a))
 		ra(stack, 1);
 	push_swap(stack);
+	// printf("-----%d >= 20\n", get_size(stack->a, max));
 	if (get_size(stack->a, max) >= 20)
+	{
+		// printf("check\n");
 		backtrack_split(stack, max);
+	}
 	backtrack(stack, max);
 }
 
@@ -271,8 +293,13 @@ void	sort_100_500(t_board *stack, t_quart *quart)
 	if (is_sorted(stack->a))
 		return ;
 	split_to_b(stack, quart);
-
 	push_swap(stack);
+	if (get_size(stack->a, largest_index(stack->a)) >= 20)
+	{
+		backtrack_split(stack, largest_index(stack->a));
+		backtrack_split(stack, largest_index(stack->a));
+	}
+	backtrack(stack, largest_index(stack->a));
 }
 
 void	large_sort(t_board *stack)
