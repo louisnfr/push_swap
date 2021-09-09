@@ -6,7 +6,7 @@ LIMIT=700
 SUM=0
 
 (cd .. && make)
-for i in {1..100}
+for i in {1..1000}
 do
 		export ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
 		if ../push_swap $ARG | ../checker $ARG | grep -q KO

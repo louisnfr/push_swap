@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 04:12:26 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 04:37:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,41 @@ void	split_to_b(t_board *stack, t_quart *quart)
 
 void	smart_rotate(t_board *stack)
 {
-	t_stack *head;
-	int i;
-	int size;
 
-	head = stack->b;
-	size = len(stack->b);
-	i = 0;
-	// print_board_index(stack);
-	stack->b = getlast(stack->b);
-	// printf("size: %d\n", size);
-	while (i < size)
-	{
-		// printf("%d < %d\n", i, size);
-		// printf("-----%d == %d\n", stack->b->index, largest_index(stack->b));
-		if (stack->b->index == largest_index(stack->b))
-		{
-			// printf("break (%d == %d)\n", stack->b->index, largest_index(stack->b));
-			break ;
-		}
-		stack->b = stack->b->previous;
-		i++;
-	}
-	// printf("%d <= %d\n", i, (int)(size / 2));
-	stack->b = head;
-	if (i <= (int)(size / 2))
-		rrb(stack, 1);
-	else
+	if (where_is_index(largest_index(stack->b), stack->b) == 1)
 		rb(stack, 1);
+	else
+		rrb(stack, 1);
+
+
+	// t_stack *head;
+	// int i;
+	// int size;
+
+	// head = stack->b;
+	// size = len(stack->b);
+	// i = 0;
+	// // print_board_index(stack);
+	// stack->b = getlast(stack->b);
+	// // printf("size: %d\n", size);
+	// while (i < size)
+	// {
+	// 	// printf("%d < %d\n", i, size);
+	// 	// printf("-----%d == %d\n", stack->b->index, largest_index(stack->b));
+	// 	if (stack->b->index == largest_index(stack->b))
+	// 	{
+	// 		// printf("break (%d == %d)\n", stack->b->index, largest_index(stack->b));
+	// 		break ;
+	// 	}
+	// 	stack->b = stack->b->previous;
+	// 	i++;
+	// }
+	// // printf("%d <= %d\n", i, (int)(size / 2));
+	// stack->b = head;
+	// if (i <= (int)(size / 2))
+	// 	rrb(stack, 1);
+	// else
+	// 	rb(stack, 1);
 }
 
 
@@ -110,6 +117,7 @@ void	split_to_a(t_board *stack, int avg, int size)
 		// print_board_index(stack);
 		if (len(stack->b) < 13)
 		{
+			// printf("check\n");
 			// bring_b_push_a(stack, largest(stack->b));
 			get_max_to_a(stack);
 		}
@@ -131,23 +139,23 @@ void	split_to_a(t_board *stack, int avg, int size)
 	}
 }
 
-int	indx(t_stack *stack, int value, int size)
-{
-	int	*array;
-	int	i;
+// int	indx(t_stack *stack, int value, int size)
+// {
+// 	int	*array;
+// 	int	i;
 
-	array = malloc(sizeof(int) * size);
-	if (!array)
-		return (-1);
-	get_array(stack, array);
-	sort_array(array, size);
-	i = -1;
-	while (++i < size)
-		if (array[i] == value)
-			return (i);
-	return (-1);
-	free(array);
-}
+// 	array = malloc(sizeof(int) * size);
+// 	if (!array)
+// 		return (-1);
+// 	get_array(stack, array);
+// 	sort_array(array, size);
+// 	i = -1;
+// 	while (++i < size)
+// 		if (array[i] == value)
+// 			return (i);
+// 	return (-1);
+// 	free(array);
+// }
 
 int	get_size(t_stack *stack, int max)
 {
