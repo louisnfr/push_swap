@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 01:59:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/09 02:59:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	split_to_b(t_board *stack, t_quart *quart)
 
 void	smart_rotate(t_board *stack)
 {
-	// t_stack	*tmp;
 	t_stack *head;
 	int i;
 	int size;
@@ -65,23 +64,23 @@ void	smart_rotate(t_board *stack)
 	i = 0;
 	print_board_index(stack);
 	stack->b = getlast(stack->b);
-	// printf("size: %d\n", size);
+	printf("size: %d\n", size);
 	while (i < size)
 	{
 		// printf("%d < %d\n", i, size);
-		printf("-----%d == %d\n", stack->b->index, largest_index(head));
+		printf("-----%d == %d\n", stack->b->index, largest_index(stack->b));
 		if (stack->b->index == largest_index(stack->b))
+		{
+			printf("break (%d == %d)\n", stack->b->index, largest_index(stack->b));
 			break ;
+		}
 		stack->b = stack->b->previous;
 		i++;
 	}
-	// printf("%d <= %d\n", i, (int)(size / 2));
+	printf("%d <= %d\n", i, (int)(size / 2));
 	stack->b = head;
 	if (i <= (int)(size / 2))
-	{
-		// printf("check\n");
 		rrb(stack, 1);
-	}
 	else
 		rb(stack, 1);
 }
