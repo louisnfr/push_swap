@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/07 13:37:57 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/10 20:10:22 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,9 @@ WHITE       = \033[1;37m
 
 ### RULES ###
 
-all: $(NAME) $(CHECKER)
+all: $(NAME)
+
+bonus : $(CHECKER)
 
 $(NAME): $(OBJ)
 	@echo "$(YELLOW)libft..$(NOC)"
