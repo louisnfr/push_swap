@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 03:28:45 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:02:47 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,6 @@ void	addback(t_stack **stack, t_stack *cell)
 		last->next = cell;
 		cell->previous = last;
 	}
-}
-
-void	addfront(t_stack **stack, t_stack *cell)
-{
-	cell->next = *stack;
-	*stack = cell;
 }
 
 int	len(t_stack *stack)
