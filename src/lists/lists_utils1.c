@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:45:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 04:42:37 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/12 23:39:00 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	where_is(int x, t_stack *stack)
 
 int	is_empty(t_stack *stack)
 {
-	if (stack && stack == NULL)
+	if (stack == NULL)
 		return (1);
 	return (0);
 }
