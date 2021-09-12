@@ -6,22 +6,22 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/12 23:23:31 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/12 23:53:40 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
-CC      = gcc
-FLAGS  = -Wall -Wextra -Werror
+CC		= clang
+FLAGS	= -Wall -Wextra -Werror
 
 ### EXECUTABLE ###
-NAME   = push_swap
-CHECKER = checker
+NAME	= push_swap
+CHECKER	= checker
 ### INCLUDES ###
-INCLUDE = include
-LIBFT_PATH  = libft
-SRC_PATH  = src
-OBJ_PATH  = obj
+INCLUDE	= include
+LIBFT_PATH	= libft
+SRC_PATH	= src
+OBJ_PATH	= obj
 
 ### SOURCE FILES ###
 SOURCES = main.c \
@@ -67,19 +67,19 @@ SOURCES_CH = checker.c \
 		exit/free.c
 
 ### OBJECTS ###
-SRC = $(addprefix $(SRC_PATH)/,$(SOURCES))
-OBJ = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
+SRC	= $(addprefix $(SRC_PATH)/,$(SOURCES))
+OBJ	= $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 
-SRC_CH = $(addprefix $(SRC_PATH)/,$(SOURCES_CH))
-OBJ_CH = $(addprefix $(OBJ_PATH)/,$(SOURCES_CH:.c=.o))
+SRC_CH	= $(addprefix $(SRC_PATH)/,$(SOURCES_CH))
+OBJ_CH	= $(addprefix $(OBJ_PATH)/,$(SOURCES_CH:.c=.o))
 
 ### COLORS ###
-NOC         = \033[0m
-RED         = \033[1;31m
-GREEN       = \033[1;32m
-YELLOW      = \033[1;33m
-BLUE        = \033[1;34m
-WHITE       = \033[1;37m
+NOC		= \033[0m
+RED		= \033[1;31m
+GREEN	= \033[1;32m
+YELLOW	= \033[1;33m
+BLUE	= \033[1;34m
+WHITE	= \033[1;37m
 
 ### RULES ###
 
