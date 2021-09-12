@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:23:09 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/12 23:39:35 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/12 23:43:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ int	main(int ac, char **av)
 
 	stack = init_board();
 	check_input(ac, av, stack);
-	if (is_empty(stack->b))
-		printf("empty\n");
 	read_actions(stack);
 	if (is_sorted(stack->a) && !stack->b)
 		write(1, "OK\n", 3);
