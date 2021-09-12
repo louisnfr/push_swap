@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:47:56 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/12 23:43:14 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/12 23:49:08 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	pa(t_board *stack, int print)
 {
 	t_stack	*tmp;
 
-	if (!stack->b)
+	if (is_empty(stack->b))
 		return ;
 	tmp = stack->b;
 	if (stack->a && stack->b)
@@ -40,7 +40,7 @@ void	pb(t_board *stack, int print)
 {
 	t_stack	*tmp;
 
-	if (!stack->a)
+	if (is_empty(stack->a))
 		return ;
 	tmp = stack->a;
 	if (stack->a && stack->b)
