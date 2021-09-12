@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/13 00:06:49 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/13 00:35:32 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SOURCES = main.c \
 		sort/large_sort.c \
 		sort/array.c \
 		sort/sort_utils0.c \
+		sort/sort_utils1.c \
 		lists/lists_utils0.c \
 		lists/lists_utils1.c \
 		lists/lists_utils2.c \
@@ -55,6 +56,7 @@ SOURCES_CH = checker.c \
 		sort/large_sort.c \
 		sort/array.c \
 		sort/sort_utils0.c \
+		sort/sort_utils1.c \
 		lists/lists_utils0.c \
 		lists/lists_utils1.c \
 		lists/lists_utils2.c \
