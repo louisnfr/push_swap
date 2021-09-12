@@ -6,21 +6,11 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 20:08:50 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/08 00:33:54 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:26:32 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	count_args(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av && av[i])
-		i++;
-	return (i);
-}
 
 int	check_arg(char *av)
 {
@@ -95,10 +85,10 @@ void	parse_string(t_board *stack, char **av)
 
 void	fill_indexes(t_stack *stack)
 {
-	t_stack *head;
-	int	*array;
-	int	size;
-	int	i;
+	t_stack	*head;
+	int		*array;
+	int		size;
+	int		i;
 
 	head = stack;
 	size = len(stack);

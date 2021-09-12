@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:23:06 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:31:03 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 void	backtrack_split(t_board *stack, int max)
 {
-	int avg;
-	int c;
-	int i;
+	int	c;
+	int	i;
 
 	c = 0;
-	avg = get_avg_limit(stack->a, max);
-	(void)avg;
-	(void)c;
-	(void)i;
 	while (stack->a->index <= max && stack->a->index != 1)
 	{
-		if (stack->a->index >= avg)
+		if (stack->a->index >= get_avg_limit(stack->a, max))
 		{
 			ra(stack, 1);
 			c++;
@@ -92,17 +87,15 @@ int	smallest_index(t_stack *stack)
 
 void	push_swap(t_board *stack)
 {
-	int max;
+	int	max;
 
-	(void)max;
 	if (len(stack->b) == 0)
 		return ;
 	max = largest_index(stack->b);
 	split_to_a(stack, get_avg(stack->b), len(stack->b));
 	while ((stack->a->index
 			== getlast(stack->a)->index + 1
-			|| stack->a->index == 1)
-			&& !is_sorted(stack->a))
+			|| stack->a->index == 1) && !is_sorted(stack->a))
 		ra(stack, 1);
 	push_swap(stack);
 	if (get_size(stack->a, max) >= 20)
@@ -110,7 +103,7 @@ void	push_swap(t_board *stack)
 	backtrack(stack, max);
 }
 
-void	sort_100_500(t_board *stack)
+void	large_sort(t_board *stack)
 {
 	if (is_sorted(stack->a))
 		return ;
@@ -122,9 +115,4 @@ void	sort_100_500(t_board *stack)
 		backtrack_split(stack, largest_index(stack->a));
 	}
 	backtrack(stack, largest_index(stack->a));
-}
-
-void	large_sort(t_board *stack)
-{
-	sort_100_500(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:24:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:25:57 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	split_to_a(t_board *stack, int avg, int size);
 void	split_to_b(t_board *stack);
 int		get_avg(t_stack *stack);
 void	smart_rotate(t_board *stack);
+int		count_args(char **av);
 
 #endif

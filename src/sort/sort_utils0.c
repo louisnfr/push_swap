@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:21:42 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:32:05 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	get_max_to_a(t_board *stack)
 		pa(stack, 1);
 	else
 	{
-		if (getlast(stack->a)->index + 1 == stack->b->index || stack->b->index == 1)
+		if (getlast(stack->a)->index + 1 == stack->b->index
+			|| stack->b->index == 1)
 		{
 			pa(stack, 1);
 			ra(stack, 1);
@@ -30,7 +31,6 @@ void	get_max_to_a(t_board *stack)
 
 void	smart_rotate(t_board *stack)
 {
-
 	if (where_is_index(largest_index(stack->b), stack->b) == 1)
 		rb(stack, 1);
 	else
@@ -49,7 +49,8 @@ void	split_to_a(t_board *stack, int avg, int size)
 				pa(stack, 1);
 			else
 			{
-				if (getlast(stack->a)->index + 1 == stack->b->index || stack->b->index == 1)
+				if (getlast(stack->a)->index + 1 == stack->b->index
+					|| stack->b->index == 1)
 				{
 					pa(stack, 1);
 					ra(stack, 1);

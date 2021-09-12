@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 19:38:20 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:16:48 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:25:11 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	bring_a_push_b(t_board *stack, int x)
 
 void	split_to_b(t_board *stack)
 {
-	int avg;
-	int size;
+	int	avg;
+	int	size;
 
 	avg = get_avg(stack->a);
 	size = len(stack->a);
