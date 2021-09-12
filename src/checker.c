@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:23:09 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 17:37:53 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/12 23:25:21 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,39 @@ int	execute_action(t_board *stack, char *action)
 	return (1);
 }
 
+void	read_actions(t_board *stack)
+{
+	char	action[4];
+	int		index;
+	int		prev_index;
+
+	index = 0;
+	while (index < 4)
+	{
+		prev_index = index;
+		index += read(0, action + index, 1);
+		// printf("index: %d\naction: %s\n", index, action);
+		if (prev_index == index)
+			break ;
+		if (action[prev_index] == '\n')
+		{
+			action[prev_index] = 0;
+			if (!execute_action(stack, action))
+				terminate(ERROR, stack);
+			index = 0;
+		}
+	}
+	if (index == 4)
+		terminate(ERROR, stack);
+}
+
 int	main(int ac, char **av)
 {
 	t_board	*stack;
-	char	*action;
 
 	stack = init_board();
 	check_input(ac, av, stack);
-	while (get_next_line(0, &action))
-	{
-		execute_action(stack, action);
-		free(action);
-	}
+	read_actions(stack);
 	if (is_sorted(stack->a) && !stack->b)
 		write(1, "OK\n", 3);
 	else
