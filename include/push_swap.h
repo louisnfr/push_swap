@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:25:57 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:45:50 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,28 +93,30 @@ void	rrb(t_board *stack, int print);
 void	rrr(t_board *stack, int print);
 
 /* sort */
+int		count_args(char **av);
 
+void	sort_array(int *array, int n);
+void	get_array(t_stack *stack, int *array);
 void	small_sort(t_board *stack);
 void	sort_2(t_board *stack);
 void	sort_3(t_board *stack);
 void	prep_4_5(t_board *stack);
 void	sort_4_5(t_board *stack);
-void	medium_sort(t_board *stack);
-void	sort_array(int *array, int n);
-void	get_array(t_stack *stack, int *array);
 void	large_sort(t_board *stack);
-
 void	push_swap(t_board *stack);
 void	backtrack(t_board *stack, int max);
+
+/* sort utils */
+
+int		where_is_index(int x, t_stack *stack);
 int		largest_index(t_stack *stack);
 int		smallest_index(t_stack *stack);
-int		where_is_index(int x, t_stack *stack);
 int		get_size(t_stack *stack, int max);
+int		get_avg(t_stack *stack);
 int		get_avg_limit(t_stack *stack, int max);
 void	split_to_a(t_board *stack, int avg, int size);
 void	split_to_b(t_board *stack);
-int		get_avg(t_stack *stack);
 void	smart_rotate(t_board *stack);
-int		count_args(char **av);
+void	get_max_to_a(t_board *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:32:05 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:42:59 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,6 @@ void	smart_rotate(t_board *stack)
 		rrb(stack, 1);
 }
 
-void	split_to_a(t_board *stack, int avg, int size)
-{
-	while (size-- > 0)
-	{
-		if (len(stack->b) < 13)
-			get_max_to_a(stack);
-		else
-		{
-			if (stack->b->index >= avg)
-				pa(stack, 1);
-			else
-			{
-				if (getlast(stack->a)->index + 1 == stack->b->index
-					|| stack->b->index == 1)
-				{
-					pa(stack, 1);
-					ra(stack, 1);
-				}
-				else
-					rb(stack, 1);
-			}
-		}
-	}
-}
-
 int	get_size(t_stack *stack, int max)
 {
 	int	i;
@@ -75,6 +50,26 @@ int	get_size(t_stack *stack, int max)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+int	get_avg(t_stack *stack)
+{
+	float	total;
+	int		size;
+	int		i;
+
+	if (len(stack) == 0)
+		return (0);
+	total = 0;
+	size = len(stack);
+	i = 0;
+	while (stack)
+	{
+		total += (stack->index);
+		stack = stack->next;
+		i++;
+	}
+	return ((int)(total / (int)size + 0.5));
 }
 
 int	get_avg_limit(t_stack *stack, int max)

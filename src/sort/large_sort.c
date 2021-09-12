@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:39:30 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:57:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	backtrack_split(t_board *stack, int max)
 {
-	int	c;
 	int	avg;
+	int	c;
 	int	i;
 
 	c = 0;
