@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/09 04:31:09 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:24:09 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	print_board(t_board *stack);
 void	print_stack_index(t_stack *stack, char *name);
 void	print_board_index(t_board *stack);
 void	addback(t_stack **stack, t_stack *cell);
-void	addfront(t_stack **stack, t_stack *cell);
 t_stack	*getlast(t_stack *stack);
 int		len(t_stack *stack);
 int		smallest(t_stack *stack);
@@ -77,16 +76,7 @@ int		where_is(int x, t_stack *stack);
 int		is_on_top(t_stack *stack, int x);
 int		is_empty(t_stack *stack);
 int		is_sorted(t_stack *stack);
-void	bring_on_top_a(t_board *stack, int x);
-void	bring_on_top_b(t_board *stack, int x);
-void	bring_b_push_a(t_board *stack, int x);
 void	bring_a_push_b(t_board *stack, int x);
-void	get_quartiles(t_stack *stack, t_quart *quart);
-void	get_quartiles_limit(t_stack *stack, t_quart *quart, int max);
-int		closest_below_k(t_stack *stack, int k);
-int		last_below_k(t_stack *stack, int k);
-int		closest_above_k(t_stack *stack, int k);
-int		last_above_k(t_stack *stack, int k);
 
 /* actions */
 
@@ -114,21 +104,16 @@ void	sort_array(int *array, int n);
 void	get_array(t_stack *stack, int *array);
 void	large_sort(t_board *stack);
 
-/* sort utils */
-
-void	pa_q2(t_board *stack, t_quart *quart);
-void	pb_q2(t_board *stack, t_quart *quart);
-void	sort_rest_a(t_board *stack);
-void	half_on_a(t_board *stack, t_quart *quart);
-void	ra_sorted_half_on_b(t_board *stack, int quart, int max);
-int		indx(t_stack *stack, int value, int size);
-
-/* wip */
 void	push_swap(t_board *stack);
 void	backtrack(t_board *stack, int max);
 int		largest_index(t_stack *stack);
-int	smallest_index(t_stack *stack);
-int	where_is_index(int x, t_stack *stack);
-
+int		smallest_index(t_stack *stack);
+int		where_is_index(int x, t_stack *stack);
+int		get_size(t_stack *stack, int max);
+int		get_avg_limit(t_stack *stack, int max);
+void	split_to_a(t_board *stack, int avg, int size);
+void	split_to_b(t_board *stack);
+int		get_avg(t_stack *stack);
+void	smart_rotate(t_board *stack);
 
 #endif

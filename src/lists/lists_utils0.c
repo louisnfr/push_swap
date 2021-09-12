@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:29 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:02:47 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 00:15:40 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ int	len(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int	is_empty(t_stack *stack)
+{
+	if (stack == NULL)
+		return (1);
+	return (0);
 }
