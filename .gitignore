@@ -41,7 +41,7 @@ checker
 
 # Debug files
 valgrind
-trace
+testers/log_error
 *.dSYM/
 *.su
 *.idb
