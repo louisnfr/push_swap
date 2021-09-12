@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/10 20:10:22 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/12 22:00:54 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,21 +83,21 @@ WHITE       = \033[1;37m
 
 ### RULES ###
 
-all: $(NAME)
+all: libft_make $(NAME)
 
-bonus : $(CHECKER)
+bonus : libft_make $(CHECKER)
 
 $(NAME): $(OBJ)
-	@echo "$(YELLOW)libft..$(NOC)"
-	@make -sC $(LIBFT_PATH)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
 
 $(CHECKER): $(OBJ_CH)
-	@echo "$(YELLOW)libft..$(NOC)"
-	@make -sC $(LIBFT_PATH)
 	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
+
+libft_make:
+	@echo "$(YELLOW)libft..$(NOC)"
+	@make -sC $(LIBFT_PATH)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCLUDE)/$(NAME).h
 	@mkdir -p obj/actions obj/exit obj/sort obj/parsing obj/init obj/lists
@@ -106,12 +106,12 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCLUDE)/$(NAME).h
 
 clean:
 	@echo "$(RED)clean$(NOC)"
-	@make clean -sC $(LIBFT_PATH)
+	# @make clean -sC $(LIBFT_PATH)
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean
 	@echo "$(RED)fclean$(NOC)"
-	@make fclean -sC $(LIBFT_PATH)
+	# @make fclean -sC $(LIBFT_PATH)
 	@rm -f $(NAME) $(CHECKER)
 
 re: fclean all
