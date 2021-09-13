@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:45:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:15:46 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 17:01:58 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int	where_is(int x, t_stack *stack)
 
 int	is_sorted(t_stack *stack)
 {
+	if (!stack)
+		return (0);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
