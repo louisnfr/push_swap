@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:45:04 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 18:53:41 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 19:07:38 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	where_is_index(int x, t_stack *stack)
 			else
 				return (2);
 		}
-		i++;
 		stack = stack->next;
+		i++;
 	}
 	return (-1);
 }
