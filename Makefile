@@ -6,7 +6,7 @@
 #    By: lraffin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 04:32:29 by lraffin           #+#    #+#              #
-#    Updated: 2021/09/13 00:35:32 by lraffin          ###   ########.fr        #
+#    Updated: 2021/09/13 16:28:16 by lraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,7 @@ $(CHECKER): $(OBJ_CH)
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCLUDE)/$(NAME).h
 	@mkdir -p obj/actions obj/exit obj/sort obj/parsing obj/init obj/lists
 	@$(CC) $(FLAGS) -I$(INCLUDE) -c -o $@ $<
-	@echo "$(BLUE)gcc $(WHITE)$(notdir $@)$(NOC)"
+	@echo "$(BLUE)clang $(WHITE)$(notdir $@)$(NOC)"
 
 clean:
 	@echo "$(RED)clean$(NOC)"
@@ -124,4 +124,4 @@ push:
 	git commit -m push_swap
 	git push
 
-.PHONY:	all, clean, fclean, re, checker, norm, push, bonus
+.PHONY:	all clean fclean re checker norm push bonus
