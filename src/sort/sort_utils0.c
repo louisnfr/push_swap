@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:20:55 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:42:59 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 18:59:22 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	get_avg(t_stack *stack)
 		stack = stack->next;
 		i++;
 	}
-	return ((int)(total / (int)size + 0.5));
+	return ((int)(total / (int)(size + 0.5)));
 }
 
 int	get_avg_limit(t_stack *stack, int max)
