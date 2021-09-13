@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 17:34:53 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:57:38 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 04:19:41 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ void	backtrack_split(t_board *stack, int max)
 	}
 	i = -1;
 	while (++i < c)
-	{
 		if (stack->b->index != largest_index(stack->b))
 			rrr(stack, 1);
-		else
-			rra(stack, 1);
-	}
+	else
+		rra(stack, 1);
 	if (smallest_index(stack->b) == getlast(stack->a)->index + 1 && c > 0)
 		push_swap(stack);
 }

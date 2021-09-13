@@ -6,7 +6,7 @@
 /*   By: lraffin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 17:59:30 by lraffin           #+#    #+#             */
-/*   Updated: 2021/09/13 00:45:50 by lraffin          ###   ########.fr       */
+/*   Updated: 2021/09/13 03:58:13 by lraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	rrb(t_board *stack, int print);
 void	rrr(t_board *stack, int print);
 
 /* sort */
+
 int		count_args(char **av);
 
 void	sort_array(int *array, int n);
