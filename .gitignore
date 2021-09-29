@@ -40,6 +40,7 @@ checker
 *.hex
 
 # Debug files
+.vscode
 valgrind
 testers/log_error
 *.dSYM/
